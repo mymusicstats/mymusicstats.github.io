@@ -9,7 +9,8 @@ function welcomeFn() {
   $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getinfo&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
     var html = '';
     var lastfmUser = json.user.name;
-    var totalScrobbles = json.user.playcount;
+    var totalScrobbles = '<b>' + json.user.playcount + '</b>';
+    var totalScrobblesNum = json.user.playcount;
     var scrobbledSince = json.user.registered.unixtime;
     var imgSrc = json.user.image[2]['#text'];
 
@@ -24,19 +25,20 @@ function welcomeFn() {
     // Day
     var day = date.getDate();
     // Display date time in MM-dd-yyyy h:m:s format
-    var convdataTime = month + ' ' + day + ', ' + year + '!';
+    var convdataTime = '<b>' + month + ' ' + day + ', ' + year + '</b>' + '!';
 
     var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
     var firstDate = new Date(scrobbledSince*1000);
     var secondDate = new Date();
-    var diffDays = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
+    var diffDays = '<b>' + Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) + '</b>';
+    var diffDaysNum = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
     console.log(imgSrc);
-    var songsPerDay = (totalScrobbles/diffDays).toFixed();
+    var songsPerDay = '<b>' + (totalScrobblesNum/diffDaysNum).toFixed() + '</b>';
     $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&nowplaying=true&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
-      var nowplaying = json.recenttracks.track[0]['name'];
+      var nowplaying = '<b>'+json.recenttracks.track[0]['name']+'</b>';
       var lastplayedImg = json.recenttracks.track[0]['image'][2]['#text'];
-      var lastartistname = json.recenttracks.track[0]['artist']['#text'];
-      var lastalbumname = json.recenttracks.track[0]['album']['#text'];
+      var lastartistname = '<b>'+json.recenttracks.track[0]['artist']['#text']+'</b>';
+      var lastalbumname = '<b>'+json.recenttracks.track[0]['album']['#text']+'</b>';
       console.log(lastplayedImg);
       document.getElementById("recentTracks").innerHTML = "Your last played song is : " + nowplaying + " by : " + lastartistname + " from the Album : " + lastalbumname;
       document.getElementById('lastplayed').src = lastplayedImg;
