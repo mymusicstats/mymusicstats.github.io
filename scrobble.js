@@ -24,7 +24,7 @@ function welcomeFn() {
     // Day
     var day = date.getDate();
     // Display date time in MM-dd-yyyy h:m:s format
-    var convdataTime = month + ' ' + day + ',' + year + '!';
+    var convdataTime = month + ' ' + day + ', ' + year + '!';
 
     var oneDay = 24*60*60*1000; // hours*minutes*seconds*milliseconds
     var firstDate = new Date(scrobbledSince*1000);
