@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <title>My Music Stats - Visualise your Last.fm Data</title>
+
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
+
+  <!-- UIkit JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+  <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+  <script type="text/javascript" src="scrobble.js"></script>
+</head>
+<body>
+  <nav class="uk-navbar-container uk-margin" uk-navbar>
+    <div class="uk-navbar-left">
+      <a class="uk-navbar-item uk-logo" href="/"></i>My Music Stats</a>
+      <ul class="uk-navbar-nav">
+        <li>
+          <a href="#modal-example" uk-toggle>
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>Features
+          </a>
+        </li>
+      </ul>
+      <!-- This is an anchor toggling the modal -->
+<!-- This is the modal -->
+<div id="modal-example" uk-modal>
+    <div class="uk-modal-dialog uk-modal-body">
+        <h2 class="uk-modal-title">My Music Stats</h2>
+        <li>Quickly visualise your music data.</li>
+        <li>No data collected.</li>
+        <li>Quickly visualise your music data.</li>
+        <p class="uk-text-right">
+            <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+        </p>
+    </div>
+</div>
+      <!--<div class="uk-navbar-item">
+        <div>Some <a href="#">Link</a></div>
+      </div>-->
+      <div class="uk-navbar-item">
+        <form action="javascript:void(0)">
+          <input class="uk-input uk-form-width-medium uk-form-danger" type="text" placeholder="Enter Last.fm user name." id="userName">
+          <button class="uk-button uk-button-secondary" onclick="welcomeFn()" id="submitBtn">Submit</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="uk-container">
+    <article class="uk-article">
+      <h1 class="uk-article-title">Welcome to <span class="uk-text-background">My Music Stats!</span></h1>
+      <p>To check your stats, enter your Last.fm ID in the textbox above & press Submit.</p>
+      <div><img data-src="" id="image" uk-img></div>
+      <h2 id="welcome"></h2>
+      <p class="uk-text-lead" id="totalScrobbles"></p>
+      <!--<div class="uk-grid-small uk-child-width-auto" uk-grid>
+      <div>
+      <a class="uk-button uk-button-text" href="#">Read more</a>
+    </div>
+    <div>
+    <a class="uk-button uk-button-text" href="#">5 Comments</a>
+  </div>
+</div>-->
+</article>
+</div>
+</body>
+</html>
