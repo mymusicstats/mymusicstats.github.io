@@ -1,5 +1,11 @@
 function welcomeFn() {
   var userName = document.getElementById("userName").value;
+  if (userName == "") {
+    UIkit.notification({message: '<span uk-icon=\'icon: warning\'></span> Error! Enter a Last.fm user name.', status: 'danger'})
+  }
+  else {
+    UIkit.notification({message: '<span uk-icon=\'icon: check\'></span> Visualising your data now. Scroll down if on a mobile device.', status: 'primary'})
+  }
   $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getinfo&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
     var html = '';
     var lastfmUser = json.user.name;
