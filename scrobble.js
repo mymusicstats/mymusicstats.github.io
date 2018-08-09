@@ -1,10 +1,6 @@
 function welcomeFn() {
   var userName = document.getElementById("userName").value;
-<<<<<<< HEAD
-  $.getJSON("http://ws.audioscrobbler.com/2.0/?method=user.getinfo&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
-=======
   $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getinfo&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
->>>>>>> 51e70612c2077f951382f866b0cdcd3f1a12a14a
     var html = '';
     var lastfmUser = json.user.name;
     var totalScrobbles = json.user.playcount;
