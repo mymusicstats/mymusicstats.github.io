@@ -15,10 +15,13 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
 <meta name="author" content="Shashank Srivastava.">
-	<meta name="keywords" content="Music Stats, Music, Stats, Visualise, music, statistics, music habits">
+<meta name="keywords" content="Music Stats, Music, Stats, Visualise, music, statistics, music habits">
 <title>My Music Stats - Visualise your Last.fm Data</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+
 <!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
 
@@ -34,7 +37,7 @@ crossorigin="anonymous"></script>
 <body>
   <nav class="uk-navbar-container uk-margin" uk-navbar>
     <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="/"></i>My Music Stats</a>
+      <a class="uk-navbar-item uk-logo animated fadeInDown" href="/">My Music Stats</a>
       <ul class="uk-navbar-nav">
         <li>
           <a href="#modal-example" uk-toggle>
@@ -71,7 +74,7 @@ crossorigin="anonymous"></script>
     <h1 class="uk-article-title">Welcome to <span class="uk-text-background">My Music Stats!</span></h1>
     <p>To check your stats, enter your Last.fm ID in the textbox above & press Submit.</p>
     <div><img data-src="" id="image" uk-img></div>
-    <h2 id="welcome"></h2>
+    <h2 id="welcome" class="animated infinite pulse uk-text-success"></h2>
     <p class="uk-text-lead" id="totalScrobbles"></p>
     <!--<div class="uk-grid-small uk-child-width-auto" uk-grid>
     <div>
