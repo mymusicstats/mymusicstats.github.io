@@ -20,10 +20,12 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 
 <!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
+
+<link rel="stylesheet" href="dist/css/social-share-kit.css" type="text/css">
 
 <!-- UIkit JS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
@@ -32,9 +34,18 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 src="https://code.jquery.com/jquery-3.3.1.min.js"
 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 crossorigin="anonymous"></script>
-<script type="text/javascript" src="scrobble.js"></script>
+<script type="text/javascript" src="dist/js/scrobble.js"></script>
+<script type="text/javascript" src="dist/js/social-share-kit.js"></script>
 </head>
 <body>
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script
   <nav class="uk-navbar-container uk-margin" uk-navbar>
     <div class="uk-navbar-left">
       <a class="uk-navbar-item uk-logo animated fadeInDown" href="/">My Music Stats</a>
@@ -43,6 +54,9 @@ crossorigin="anonymous"></script>
           <a href="#modal-example" uk-toggle>
             <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>Features
           </a>
+        </li>
+        <li>
+        <a class="fb-like" data-href="https://mymusicstats.github.io/" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></a>
         </li>
       </ul>
       <!-- This is an anchor toggling the modal -->
@@ -89,7 +103,32 @@ crossorigin="anonymous"></script>
 </div>
 </div>-->
 </article>
+<div class="ssk-sticky ssk-right ssk-center">
+  <a href="" class="ssk ssk-facebook ssk-lg" data-url="https://mymusicstats.github.io/" data-text="Visualise your Last.fm Data, analyse your music habits."></a>
+  <a href="" class="ssk ssk-twitter ssk-lg" data-via="shashanksriva"></a>
+  <a href="" class="ssk ssk-google-plus ssk-lg" data-url="https://mymusicstats.github.io/"></a>
+  <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://mymusicstats.github.io/" data-text="Visualise your Last.fm Data, analyse your music habits."></a>
+  <a href="whatsapp://send?text=Visualise%20your%20Last.fm%20Data,%20analyse%20your%20music%20habits.%20Visit%20https://mymusicstats.github.io/" class="ssk ssk-whatsapp ssk-lg"></a>
+</div>
+<script type="text/javascript">
+SocialShareKit.init();
+</script>
+<hr>
 <a href="#" uk-totop uk-scroll></a>
+<center>
+<div class="footer">
+  <h2><span class="uk-label uk-label-primary"><></span> with <span class="uk-label uk-label-danger"><i class="fas fa-heart"></i></span> & <span class="uk-label uk-label-success"><i class="fab fa-js-square"></i></span> by <span class="uk-label uk-label-warning">Shashank Srivastava</span></h2>
+  <p class="uk-text-secondary">All rights reserved with Last.fm</p>
+  <p class="text-info">Connect with me on social media. I would love to see you there!</p>
+  <div>
+    <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
+    <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
+    <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube" data-ssk-ready="true">YouTube</a>
+    <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram" data-ssk-ready="true">Instagram</a>
+    <a href="https://plus.google.com/+ShashankSrivastava" class="ssk ssk-text ssk-google-plus" data-ssk-ready="true">Google+</a>
+  </div>
+</div>
+</center>
 </div>
 </body>
 </html>

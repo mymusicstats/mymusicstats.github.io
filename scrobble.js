@@ -45,7 +45,7 @@ function welcomeFn() {
     });
 
     document.getElementById("welcome").innerHTML = "Hi" + " " + lastfmUser;
-    document.getElementById("totalScrobbles").innerHTML = "You have scrobbled a total of" + " " + totalScrobbles + " songs since joining Last.fm on " + convdataTime + " It means " + diffDays + " days have elapsed since then! Oh, it also means that you have scrolled " + songsPerDay + " songs per day! Keep it up.";
+    document.getElementById("totalScrobbles").innerHTML = "You have heard a total of" + " " + totalScrobbles + " songs since joining Last.fm on " + convdataTime + " It means " + diffDays + " days have elapsed since then! Oh, it also means that you have listened to " + songsPerDay + " songs per day! Keep it up.";
     document.getElementById('image').src = imgSrc;
   });
 }
