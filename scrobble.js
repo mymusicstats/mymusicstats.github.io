@@ -76,7 +76,7 @@ function welcomeFn() {
   });
 }
 
-google.charts.load('current', {'packages':['bar']});
+google.charts.load('current', {'packages':['corechart']});
 function drawChart() {
   var userName = document.getElementById("userName").value;
   $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&limit=20&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
@@ -87,9 +87,14 @@ function drawChart() {
       data.addRow([json.toptracks.track[i].name, parseInt(json.toptracks.track[i].playcount)]);
       var options = {
         title: "Most Played Tracks. (Hover mouse to see the title.)",
+        hAxis: { textPosition: 'none' },
+        animation:{
+          startup: true,
+          duration: 2500,
+        },
       };
-      var chart = new google.charts.Bar(document.getElementById('mostplayedtracks'));
-      chart.draw(data, google.charts.Bar.convertOptions(options));
+      var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedtracks'));
+      chart.draw(data, options);
     }
     document.getElementById("top20tracksLabel").innerHTML = "And here are your Top 20 Most Played Songs: -"
   });
@@ -102,9 +107,14 @@ function drawChart() {
       data.addRow([json.topartists.artist[i].name, parseInt(json.topartists.artist[i].playcount)]);
       var options = {
         title: "Most Heard Artists. (Hover mouse to see the title.)",
+        hAxis: { textPosition: 'none' },
+        animation:{
+          startup: true,
+          duration: 2500,
+        },
       };
-      var chart = new google.charts.Bar(document.getElementById('mostplayedartists'));
-      chart.draw(data, google.charts.Bar.convertOptions(options));
+      var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedartists'));
+      chart.draw(data, options);
     }
     document.getElementById("top20artistsLabel").innerHTML = "And here are your Top 20 Most Heard Artists: -"
   });
@@ -117,9 +127,14 @@ function drawChart() {
       data.addRow([json.topalbums.album[i].name, parseInt(json.topalbums.album[i].playcount)]);
       var options = {
         title: "Most Heard Albums. (Hover mouse to see the title.)",
+        hAxis: { textPosition: 'none' },
+        animation:{
+          startup: true,
+          duration: 2500,
+        },
       };
-      var chart = new google.charts.Bar(document.getElementById('mostplayedalbums'));
-      chart.draw(data, google.charts.Bar.convertOptions(options));
+      var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedalbums'));
+      chart.draw(data, options);
     }
     document.getElementById("top20albumsLabel").innerHTML = "And here are your Top 20 Most Heard Albums: -"
   });
