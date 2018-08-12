@@ -35,4 +35,4 @@ gulp.task('protractor', function (done) {
     });
 
 // Default Task
-gulp.task('default', ['lint', 'minify', 'watch', 'protractor']);
+gulp.task('default', ['lint', 'minify', 'watch']);

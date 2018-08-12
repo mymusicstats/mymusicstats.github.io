@@ -87,7 +87,9 @@ function drawChart() {
       data.addRow([json.toptracks.track[i].name, parseInt(json.toptracks.track[i].playcount)]);
       var options = {
         title: "Most Played Tracks. (Hover mouse to see the title.)",
-        hAxis: { textPosition: 'none' },
+        hAxis: {textPosition: 'none'},
+        chartArea: {width: '93%', height: '78%'},
+        legend: {position: 'bottom'},
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedtracks'));
       chart.draw(data, options);
@@ -103,6 +105,8 @@ function drawChart() {
       data.addRow([json.topartists.artist[i].name, parseInt(json.topartists.artist[i].playcount)]);
       var options = {
         title: "Most Heard Artists. (Hover mouse to see the title.)",
+        legend: 'bottom',
+        chartArea: {width: '93%', height: '78%'},
         hAxis: { textPosition: 'none' },
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedartists'));
@@ -119,6 +123,8 @@ function drawChart() {
       data.addRow([json.topalbums.album[i].name, parseInt(json.topalbums.album[i].playcount)]);
       var options = {
         title: "Most Heard Albums. (Hover mouse to see the title.)",
+        legend: 'bottom',
+        chartArea: {width: '93%', height: '78%'},
         hAxis: { textPosition: 'none' },
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedalbums'));

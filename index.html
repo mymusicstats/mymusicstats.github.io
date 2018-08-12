@@ -41,115 +41,115 @@ crossorigin="anonymous"></script>
 </head>
 <body>
   <div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script
   <nav class="uk-navbar-container uk-margin" uk-navbar>
-    <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo animated fadeInDown" href="/">My Music Stats</a>
-      <ul class="uk-navbar-nav">
-        <li>
-          <a href="#modal-example" uk-toggle>
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>Features
-          </a>
-        </li>
-        <li>
-        <a class="fb-like" data-href="https://mymusicstats.github.io/" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></a>
-        </li>
-      </ul>
-      <!-- This is an anchor toggling the modal -->
-      <!-- This is the modal -->
-      <div id="modal-example" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
-          <h2 class="uk-modal-title">My Music Stats</h2>
-          <li>Quickly visualise your music data.</li>
-          <li>No data collected or saved.</li>
-          <li>Pure JavaScript & HTML. No backend server involved.</li>
-          <li>Superfast & lightweight.</li>
-          <li>Looks great on mobile devices.</li>
-          <p class="uk-text-right">
-            <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
-          </p>
-        </div>
-      </div>
-      <!--<div class="uk-navbar-item">
-      <div>Some <a href="#">Link</a></div>
-    </div>-->
-    <div class="uk-navbar-item">
-      <form action="javascript:void(0)">
-        <input class="uk-input uk-form-width-medium uk-form-danger" type="text" placeholder="Enter Last.fm user name." id="userName">
-        <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart()" id="submitBtn">Submit</button>
-      </form>
-    </div>
+  <div class="uk-navbar-left">
+  <a class="uk-navbar-item uk-logo animated fadeInDown" href="/">My Music Stats</a>
+  <ul class="uk-navbar-nav">
+  <li>
+  <a href="#modal-example" uk-toggle>
+  <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span>Features
+  </a>
+  </li>
+  <li>
+  <a class="fb-like" data-href="https://mymusicstats.github.io/" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></a>
+  </li>
+  </ul>
+  <!-- This is an anchor toggling the modal -->
+  <!-- This is the modal -->
+  <div id="modal-example" uk-modal>
+  <div class="uk-modal-dialog uk-modal-body">
+  <h2 class="uk-modal-title">My Music Stats</h2>
+  <li>Quickly visualise your music data.</li>
+  <li>No data collected or saved.</li>
+  <li>Pure JavaScript & HTML. No backend server involved.</li>
+  <li>Superfast & lightweight.</li>
+  <li>Looks great on mobile devices.</li>
+  <p class="uk-text-right">
+  <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+  </p>
   </div>
-</nav>
-<div class="uk-container">
+  </div>
+  <!--<div class="uk-navbar-item">
+  <div>Some <a href="#">Link</a></div>
+  </div>-->
+  <div class="uk-navbar-item">
+  <form action="javascript:void(0)">
+  <input class="uk-input uk-form-width-medium uk-form-danger" type="text" placeholder="Enter Last.fm user name." id="userName">
+  <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart()" id="submitBtn">Submit</button>
+  </form>
+  </div>
+  </div>
+  </nav>
+  <div class="uk-container">
   <article class="uk-article">
-    <h1 class="uk-article-title">Welcome to <span class="uk-text-background">My Music Stats!</span></h1>
-    <p>To check your stats, enter your Last.fm username/ID in the textbox above & press Submit. To see my stats, enter my ID <code>shashank-ssriva</code></p>
-    <div><img data-src="" id="image" uk-img></div>
-    <h2 id="welcome" class="animated infinite pulse uk-text-success"></h2>
-    <p class="uk-text-lead" id="totalScrobbles"></p>
-    <h4 id="recentTracks"></h4>
-    <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
-    <br>
-    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-    <h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3>
-    <h4 id="toptentracks" class="uk-text-small"></h4>
-    <h4 id="top20tracksLabel" class="uk-text-bold uk-text-success"></h4>
-    <div class="chart" id="mostplayedtracks"></div>
-    </div>
-    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-    <h3 id="toptenArtistsLabel" class="uk-text-bold uk-text-warning"></h3>
-    <h4 id="toptenartists" class="uk-text-small"></h4>
-    <h4 id="top20artistsLabel" class="uk-text-bold uk-text-success"></h4>
-    <div class="chart" id="mostplayedartists"></div>
-    </div>
-    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-    <h3 id="toptenAlbumsLabel" class="uk-text-bold uk-text-primary"></h3>
-    <h4 id="toptenalbums" class="uk-text-small"></h4>
-    <h4 id="top20albumsLabel" class="uk-text-bold uk-text-success"></h4>
-    <div class="chart" id="mostplayedalbums"></div>
-    </div>
+  <h1 class="uk-article-title">Welcome to <span class="uk-text-background">My Music Stats!</span></h1>
+  <p>To check your stats, enter your Last.fm username/ID in the textbox above & press Submit. To see my stats, enter my ID <code>shashank-ssriva</code></p>
+  <div><img data-src="" id="image" uk-img></div>
+  <h2 id="welcome" class="animated infinite pulse uk-text-success"></h2>
+  <p class="uk-text-lead" id="totalScrobbles"></p>
+  <h4 id="recentTracks"></h4>
+  <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
+  <br>
+  <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+  <h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3>
+  <h4 id="toptentracks" class="uk-text-small"></h4>
+  <h4 id="top20tracksLabel" class="uk-text-bold uk-text-success"></h4>
+  <div class="chart" id="mostplayedtracks"></div>
+  </div>
+  <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+  <h3 id="toptenArtistsLabel" class="uk-text-bold uk-text-warning"></h3>
+  <h4 id="toptenartists" class="uk-text-small"></h4>
+  <h4 id="top20artistsLabel" class="uk-text-bold uk-text-success"></h4>
+  <div class="chart" id="mostplayedartists"></div>
+  </div>
+  <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+  <h3 id="toptenAlbumsLabel" class="uk-text-bold uk-text-primary"></h3>
+  <h4 id="toptenalbums" class="uk-text-small"></h4>
+  <h4 id="top20albumsLabel" class="uk-text-bold uk-text-success"></h4>
+  <div class="chart" id="mostplayedalbums"></div>
+  </div>
 
-    <!--<div class="uk-grid-small uk-child-width-auto" uk-grid>
-    <div>
-    <a class="uk-button uk-button-text" href="#">Read more</a>
+  <!--<div class="uk-grid-small uk-child-width-auto" uk-grid>
+  <div>
+  <a class="uk-button uk-button-text" href="#">Read more</a>
   </div>
   <div>
   <a class="uk-button uk-button-text" href="#">5 Comments</a>
-</div>
-</div>-->
-</article>
-<div class="ssk-sticky ssk-right ssk-center">
+  </div>
+  </div>-->
+  </article>
+  <div class="ssk-sticky ssk-right ssk-center">
   <a href="" class="ssk ssk-facebook ssk-lg" data-url="https://mymusicstats.github.io/" data-text="Visualise your Last.fm data, analyse your music habits."></a>
   <a href="" class="ssk ssk-twitter ssk-lg" data-via="shashanksriva"></a>
   <a href="" class="ssk ssk-google-plus ssk-lg" data-url="https://mymusicstats.github.io/"></a>
   <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://mymusicstats.github.io/" data-text="Visualise your Last.fm data, analyse your music habits."></a>
   <a href="whatsapp://send?text=Visualise%20your%20Last.fm%20Data,%20analyse%20your%20music%20habits.%20Visit%20https://mymusicstats.github.io/" class="ssk ssk-whatsapp ssk-lg"></a>
-</div>
-<script type="text/javascript">
-SocialShareKit.init();
+  </div>
+  <script type="text/javascript">
+  SocialShareKit.init();
 </script>
 <hr>
 <a href="#" uk-totop uk-scroll></a>
 <center>
-<div class="footer">
-  <h2><span class="uk-label uk-label-primary"><></span> with <span class="uk-label uk-label-danger"><i class="fas fa-heart"></i></span> & <span class="uk-label uk-label-success"><i class="fab fa-js-square"></i></span> by <span class="uk-label uk-label-warning">Shashank Srivastava</span></h2>
-  <p class="uk-text-secondary">All rights reserved with <a href="https://www.last.fm">Last.fm</a></p>
-  <p class="text-info">Connect with me on social media. I would love to see you there!</p>
-  <div>
-    <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
-    <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
-    <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube" data-ssk-ready="true">YouTube</a>
-    <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram" data-ssk-ready="true">Instagram</a>
-    <a href="https://plus.google.com/+ShashankSrivastava" class="ssk ssk-text ssk-google-plus" data-ssk-ready="true">Google+</a>
+  <div class="footer">
+    <h2><span class="uk-label uk-label-primary"><></span> with <span class="uk-label uk-label-danger"><i class="fas fa-heart"></i></span> & <span class="uk-label uk-label-success"><i class="fab fa-js-square"></i></span> by <span class="uk-label uk-label-warning">Shashank Srivastava</span></h2>
+    <p class="uk-text-secondary">All rights reserved with <a href="https://www.last.fm">Last.fm</a></p>
+    <p class="text-info">Connect with me on social media. I would love to see you there!</p>
+    <div>
+      <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
+      <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
+      <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube" data-ssk-ready="true">YouTube</a>
+      <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram" data-ssk-ready="true">Instagram</a>
+      <a href="https://plus.google.com/+ShashankSrivastava" class="ssk ssk-text ssk-google-plus" data-ssk-ready="true">Google+</a>
+    </div>
   </div>
-</div>
 </center>
 </div>
 </body>
