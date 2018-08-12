@@ -39,6 +39,10 @@ function welcomeFn() {
       var lastartistname = '<b>'+json.recenttracks.track[0]['artist']['#text']+'</b>';
       var lastalbumname = '<b>'+json.recenttracks.track[0]['album']['#text']+'</b>';
 
+      document.getElementById("welcome").innerHTML = "Hi" + " " + lastfmUser;
+      document.getElementById("totalScrobbles").innerHTML = "You have heard a total of" + " " + totalScrobbles + " songs since joining Last.fm on " + convdataTime + " It means " + diffDays + " days have elapsed since then! Oh, it also means that you have listened to " + songsPerDay + " songs per day! Keep it up.";
+      document.getElementById('image').src = imgSrc;
+      
       $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&limit=10&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
         var html = '';
         $.each(json.toptracks.track, function(i, item) {
@@ -70,9 +74,6 @@ function welcomeFn() {
       document.getElementById("recentTracks").innerHTML = "Your last played song is : " + nowplaying + " by : " + lastartistname + " from the Album : " + lastalbumname;
       document.getElementById('lastplayed').src = lastplayedImg;
     });
-    document.getElementById("welcome").innerHTML = "Hi" + " " + lastfmUser;
-    document.getElementById("totalScrobbles").innerHTML = "You have heard a total of" + " " + totalScrobbles + " songs since joining Last.fm on " + convdataTime + " It means " + diffDays + " days have elapsed since then! Oh, it also means that you have listened to " + songsPerDay + " songs per day! Keep it up.";
-    document.getElementById('image').src = imgSrc;
   });
 }
 
@@ -88,7 +89,7 @@ function drawChart() {
       var options = {
         title: "Most Played Tracks. (Hover mouse to see the title.)",
         hAxis: {textPosition: 'none'},
-        chartArea: {width: '90%', height: '78%'},
+        chartArea: {width: '85%', height: '78%'},
         legend: {position: 'bottom'},
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedtracks'));
@@ -105,8 +106,8 @@ function drawChart() {
       data.addRow([json.topartists.artist[i].name, parseInt(json.topartists.artist[i].playcount)]);
       var options = {
         title: "Most Heard Artists. (Hover mouse to see the title.)",
+        chartArea: {width: '85%', height: '78%'},
         legend: 'bottom',
-        chartArea: {width: '90%', height: '78%'},
         hAxis: { textPosition: 'none' },
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedartists'));
@@ -123,8 +124,8 @@ function drawChart() {
       data.addRow([json.topalbums.album[i].name, parseInt(json.topalbums.album[i].playcount)]);
       var options = {
         title: "Most Heard Albums. (Hover mouse to see the title.)",
+        chartArea: {width: '85%', height: '78%'},
         legend: 'bottom',
-        chartArea: {width: '90%', height: '78%'},
         hAxis: { textPosition: 'none' },
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedalbums'));
