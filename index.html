@@ -18,6 +18,7 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 <meta name="keywords" content="Music Stats, Music, Stats, Visualise, music, statistics, music habits">
 <title>My Music Stats - Visualise your Last.fm data, analyse your music habits.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
@@ -34,8 +35,9 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 src="https://code.jquery.com/jquery-3.3.1.min.js"
 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 crossorigin="anonymous"></script>
-<script type="text/javascript" src="dist/js/scrobble.js"></script>
+<script type="text/javascript" src="scrobble.js"></script>
 <script type="text/javascript" src="dist/js/social-share-kit.js"></script>
+
 </head>
 <body>
   <div id="fb-root"></div>
@@ -80,7 +82,7 @@ crossorigin="anonymous"></script>
     <div class="uk-navbar-item">
       <form action="javascript:void(0)">
         <input class="uk-input uk-form-width-medium uk-form-danger" type="text" placeholder="Enter Last.fm user name." id="userName">
-        <button class="uk-button uk-button-secondary" onclick="welcomeFn()" id="submitBtn">Submit</button>
+        <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart()" id="submitBtn">Submit</button>
       </form>
     </div>
   </div>
@@ -88,25 +90,30 @@ crossorigin="anonymous"></script>
 <div class="uk-container">
   <article class="uk-article">
     <h1 class="uk-article-title">Welcome to <span class="uk-text-background">My Music Stats!</span></h1>
-    <p>To check your stats, enter your Last.fm ID in the textbox above & press Submit. To see my stats, enter my ID <code>shashank-ssriva</code></p>
-    <hr>
+    <p>To check your stats, enter your Last.fm username/ID in the textbox above & press Submit. To see my stats, enter my ID <code>shashank-ssriva</code></p>
     <div><img data-src="" id="image" uk-img></div>
     <h2 id="welcome" class="animated infinite pulse uk-text-success"></h2>
     <p class="uk-text-lead" id="totalScrobbles"></p>
     <h4 id="recentTracks"></h4>
     <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
-    <hr>
+    <br>
     <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
     <h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3>
     <h4 id="toptentracks" class="uk-text-small"></h4>
+    <h4 id="top20tracksLabel" class="uk-text-bold uk-text-success"></h4>
+    <div class="chart" id="mostplayedtracks"></div>
     </div>
     <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
     <h3 id="toptenArtistsLabel" class="uk-text-bold uk-text-warning"></h3>
     <h4 id="toptenartists" class="uk-text-small"></h4>
+    <h4 id="top20artistsLabel" class="uk-text-bold uk-text-success"></h4>
+    <div class="chart" id="mostplayedartists"></div>
     </div>
     <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
     <h3 id="toptenAlbumsLabel" class="uk-text-bold uk-text-primary"></h3>
     <h4 id="toptenalbums" class="uk-text-small"></h4>
+    <h4 id="top20albumsLabel" class="uk-text-bold uk-text-success"></h4>
+    <div class="chart" id="mostplayedalbums"></div>
     </div>
 
     <!--<div class="uk-grid-small uk-child-width-auto" uk-grid>
@@ -133,7 +140,7 @@ SocialShareKit.init();
 <center>
 <div class="footer">
   <h2><span class="uk-label uk-label-primary"><></span> with <span class="uk-label uk-label-danger"><i class="fas fa-heart"></i></span> & <span class="uk-label uk-label-success"><i class="fab fa-js-square"></i></span> by <span class="uk-label uk-label-warning">Shashank Srivastava</span></h2>
-  <p class="uk-text-secondary">All rights reserved with Last.fm</p>
+  <p class="uk-text-secondary">All rights reserved with <a href="https://www.last.fm">Last.fm</a></p>
   <p class="text-info">Connect with me on social media. I would love to see you there!</p>
   <div>
     <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
