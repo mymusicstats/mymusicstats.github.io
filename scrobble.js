@@ -88,10 +88,6 @@ function drawChart() {
       var options = {
         title: "Most Played Tracks. (Hover mouse to see the title.)",
         hAxis: { textPosition: 'none' },
-        animation:{
-          startup: true,
-          duration: 2500,
-        },
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedtracks'));
       chart.draw(data, options);
@@ -108,10 +104,6 @@ function drawChart() {
       var options = {
         title: "Most Heard Artists. (Hover mouse to see the title.)",
         hAxis: { textPosition: 'none' },
-        animation:{
-          startup: true,
-          duration: 2500,
-        },
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedartists'));
       chart.draw(data, options);
@@ -128,10 +120,6 @@ function drawChart() {
       var options = {
         title: "Most Heard Albums. (Hover mouse to see the title.)",
         hAxis: { textPosition: 'none' },
-        animation:{
-          startup: true,
-          duration: 2500,
-        },
       };
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedalbums'));
       chart.draw(data, options);
