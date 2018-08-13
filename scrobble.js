@@ -142,8 +142,8 @@ function drawChart() {
       data.addRow([json.toptags.tag[i].name, parseInt(json.toptags.tag[i].count)]);
       var options = {
         title: "Top Tags/Genre. (Hover mouse to see the title.)",
-        width: 500,
-        height: 500,
+        chartArea: {width: '85%', height: '95%'},
+        pieSliceText: 'label',
         legend: 'none',
         pieHole: 0.4,
       };
