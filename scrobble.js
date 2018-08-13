@@ -42,7 +42,7 @@ function welcomeFn() {
       document.getElementById("welcome").innerHTML = "Hi" + " " + lastfmUser;
       document.getElementById("totalScrobbles").innerHTML = "You have heard a total of" + " " + totalScrobbles + " songs since joining Last.fm on " + convdataTime + " It means " + diffDays + " days have elapsed since then! Oh, it also means that you have listened to " + songsPerDay + " songs per day! Keep it up.";
       document.getElementById('image').src = imgSrc;
-      
+
       $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&limit=10&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
         var html = '';
         $.each(json.toptracks.track, function(i, item) {
@@ -132,6 +132,25 @@ function drawChart() {
       chart.draw(data, options);
     }
     document.getElementById("top20albumsLabel").innerHTML = "And here are your Top 20 Most Heard Albums: -"
+  });
+
+  $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettoptags&limit=5&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Tags/Genre');
+    data.addColumn('number', 'Count');
+    for(var i = 0; i < json.toptags.tag.length; i++) {
+      data.addRow([json.toptags.tag[i].name, parseInt(json.toptags.tag[i].count)]);
+      var options = {
+        title: "Top Tags/Genre. (Hover mouse to see the title.)",
+        width: 500,
+        height: 500,
+        legend: 'none',
+        pieHole: 0.4,
+      };
+      var chart = new google.visualization.PieChart(document.getElementById('toptags'));
+      chart.draw(data, options);
+    }
+    document.getElementById("toptagsLabel").innerHTML = "Your Top Tags/Genre: -"
   });
 
 }
