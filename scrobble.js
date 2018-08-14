@@ -8,7 +8,7 @@ function welcomeFn() {
   }
 
   $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getinfo&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
-    var lastfmUser = json.user.name;
+    var lastfmUser = json.user.realname;
     var totalScrobbles = '<b>' + json.user.playcount + '</b>';
     var totalScrobblesNum = json.user.playcount;
     var scrobbledSince = json.user.registered.unixtime;
@@ -152,5 +152,4 @@ function drawChart() {
     }
     document.getElementById("toptagsLabel").innerHTML = "Your Top Tags/Genre: -"
   });
-
 }
