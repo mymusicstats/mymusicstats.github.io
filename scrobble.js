@@ -70,8 +70,8 @@ function welcomeFn() {
           });
         });
       });
-
-      document.getElementById("recentTracks").innerHTML = "Your last played song is : " + nowplaying + " by : " + lastartistname + " from the Album : " + lastalbumname;
+      var musicIcon = '<i class="fas fa-play"></i>';
+      document.getElementById("recentTracks").innerHTML = musicIcon + " " + "Your last played song is : " + nowplaying + " by : " + lastartistname + " from the Album : " + lastalbumname;
       document.getElementById('lastplayed').src = lastplayedImg;
     });
   });
@@ -151,5 +151,22 @@ function drawChart() {
       chart.draw(data, options);
     }
     document.getElementById("toptagsLabel").innerHTML = "Your Top Tags/Genre: -"
+  });
+}
+
+function fetchNumber() {
+  var userName = document.getElementById("userName").value;
+  $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
+    $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
+      $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
+        var numUniqueAlbums = json.topalbums['@attr'].total;
+        document.getElementById("numuniquealbums").innerHTML = "Albums : " + numUniqueAlbums;
+      });
+      var numUniqueArtists = json.topartists['@attr'].total;
+      document.getElementById("numuniqueartists").innerHTML = "Artists : " + numUniqueArtists + " ";
+    });
+    var numUniqueTracks = json.toptracks['@attr'].total;
+    document.getElementById("numunique").innerHTML = "In case you want to know how many distinct Tracks/Artists/Albums you have listened to, here the data is.";
+    document.getElementById("numuniquetracks").innerHTML = "Tracks :  " + numUniqueTracks + " ";
   });
 }
