@@ -39,7 +39,13 @@ integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 crossorigin="anonymous"></script>
 <script type="text/javascript" src="dist/js/scrobble.js"></script>
 <script type="text/javascript" src="dist/js/social-share-kit.js"></script>
-
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({
+          google_ad_client: "ca-pub-0479862154014237",
+          enable_page_level_ads: true
+     });
+</script>
 </head>
 <body>
   <div id="fb-root"></div>
@@ -83,8 +89,8 @@ crossorigin="anonymous"></script>
   </div>-->
   <div class="uk-navbar-item">
   <form action="javascript:void(0)">
-  <input class="uk-input uk-form-width-medium uk-form-danger" type="text" placeholder="Enter Last.fm user name." id="userName">
-  <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart(); fetchNumber()" id="submitBtn">Submit</button>
+  <input type="text" class="uk-input uk-form-width-medium uk-form-danger" type="text" placeholder="Enter Last.fm user name." id="userName" autofocus>
+  <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart(); fetchNumber(); scrobblesPerDay()" id="submitBtn">Submit</button>
   </form>
   </div>
   </div>
