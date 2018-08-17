@@ -170,3 +170,15 @@ function fetchNumber() {
     document.getElementById("numuniquetracks").innerHTML = "Tracks :  " + numUniqueTracks + " ";
   });
 }
+
+function scrobblesDaily() {
+  var userName = document.getElementById("userName").value;
+  var date = new Date().setUTCHours(0,0,0,0);
+  var fromDate = date / 1000;
+  var newFromDate = fromDate - 86400;
+  var URL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&api_key=6e616452b7c762a15256272ddb774c56";
+  $.getJSON(URL + "&user=" + userName + "&from=" + fromDate + "&format=json" , function(json) {
+    var todaysScrobbles = '<b>' + json.recenttracks['@attr'].total + '</b>';
+    document.getElementById("todaysscrobbles").innerHTML = "You have listened to " + todaysScrobbles + " songs today.";
+  });
+}

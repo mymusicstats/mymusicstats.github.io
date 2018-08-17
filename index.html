@@ -90,7 +90,7 @@ crossorigin="anonymous"></script>
   <div class="uk-navbar-item">
   <form action="javascript:void(0)">
   <input type="text" class="uk-input uk-form-width-medium uk-form-danger" type="text" placeholder="Enter Last.fm user name." id="userName" autofocus>
-  <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart(); fetchNumber(); scrobblesPerDay()" id="submitBtn">Submit</button>
+  <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart(); fetchNumber(); scrobblesDaily()" id="submitBtn">Submit</button>
   </form>
   </div>
   </div>
@@ -105,31 +105,30 @@ crossorigin="anonymous"></script>
   <p class="uk-text-lead" id="numunique"></p>
   <span id="numuniquetracks" class=" uk-label uk-label-success"></span><span id="numuniqueartists" class="uk-label"></span><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
   <h4 id="recentTracks"></h4>
+  <h4 id="todaysscrobbles"></h4>
   <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
   <br>
   <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-  <h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3>
+  <u><h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3></u>
   <h4 id="toptentracks" class="uk-text-small"></h4>
   <h4 id="top20tracksLabel" class="uk-text-bold uk-text-success"></h4>
   <div class="chart" id="mostplayedtracks"></div>
   </div>
   <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-  <h3 id="toptenArtistsLabel" class="uk-text-bold uk-text-warning"></h3>
+  <u><h3 id="toptenArtistsLabel" class="uk-text-bold uk-text-warning"></h3></u>
   <h4 id="toptenartists" class="uk-text-small"></h4>
   <h4 id="top20artistsLabel" class="uk-text-bold uk-text-success"></h4>
   <div class="chart" id="mostplayedartists"></div>
   </div>
   <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-  <h3 id="toptenAlbumsLabel" class="uk-text-bold uk-text-primary"></h3>
+  <u><h3 id="toptenAlbumsLabel" class="uk-text-bold uk-text-primary"></h3></u>
   <h4 id="toptenalbums" class="uk-text-small"></h4>
   <h4 id="top20albumsLabel" class="uk-text-bold uk-text-success"></h4>
   <div class="chart" id="mostplayedalbums"></div>
   </div>
   <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-  <h3 id="toptagsLabel" class="uk-text-bold"></h3>
+  <u><h3 id="toptagsLabel" class="uk-text-bold"></h3></u>
   <div class="chart" id="toptags"></div>
-  <h3 id="dailyscrobbles" class="uk-text-bold"></h3>
-  <div class="chart" id="dailyscrobbleschart"></div>
   </div>
   </article>
   <div class="ssk-sticky ssk-right ssk-center">
