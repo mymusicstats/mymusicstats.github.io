@@ -95,7 +95,6 @@ function drawChart() {
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedtracks'));
       chart.draw(data, options);
     }
-    document.getElementById('png').outerHTML = '<a href="' + chart.getImageURI() + '" class="ssk ssk-whatsapp ssk-text">Share it!</a>';
     document.getElementById("top20tracksLabel").innerHTML = "And here are your Top 20 Most Played Songs: -"
   });
 
