@@ -22,8 +22,6 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <link rel="stylesheet"
 href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
 
 <!-- UIkit CSS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
@@ -41,11 +39,12 @@ crossorigin="anonymous"></script>
 <script type="text/javascript" src="dist/js/social-share-kit.js"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <script>
-     (adsbygoogle = window.adsbygoogle || []).push({
-          google_ad_client: "ca-pub-0479862154014237",
-          enable_page_level_ads: true
-     });
+(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: "ca-pub-0479862154014237",
+  enable_page_level_ads: true
+});
 </script>
+<script src="https://unpkg.com/jspdf@latest/dist/jspdf.min.js"></script>
 </head>
 <body>
   <div id="fb-root"></div>
@@ -107,8 +106,8 @@ crossorigin="anonymous"></script>
   <p class="uk-text-lead" id="numunique"></p>
   <span id="numuniquetracks" class=" uk-label uk-label-success"></span><span id="numuniqueartists" class="uk-label"></span><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
   <h4 id="recentTracks"></h4>
-  <h4 id="todaysscrobbles"></h4>
   <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
+  <h4 id="todaysscrobbles"></h4>
   <br>
   <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
   <u><h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3></u>
