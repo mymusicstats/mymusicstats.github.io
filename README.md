@@ -8,4 +8,4 @@ Written purely in JavaScript & the site works on the client side, so no data is 
 ## Declaration
 This site is not affiliated with Last.fm. The words `scrobble` & `Last.fm` are the property of Last.fm company.
 
-[![Quality Gate](http://localhost:9000/api/project_badges/measure?project=mymusicstats&metric=alert_status)
+[![Quality Gate](http://localhost:9000/api/project_badges/measure?project=mymusicstats&metric=alert_status)]
