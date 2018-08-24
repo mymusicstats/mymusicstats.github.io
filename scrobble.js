@@ -32,7 +32,6 @@ function welcomeFn() {
     var diffDays = '<b>' + Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) + '</b>';
     var diffDaysNum = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
     var songsPerDay = '<b>' + (totalScrobblesNum/diffDaysNum).toFixed() + '</b>';
-
     $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&nowplaying=true&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
       var nowplaying = '<b>'+json.recenttracks.track[0]['name']+'</b>';
       var lastplayedImg = json.recenttracks.track[0]['image'][2]['#text'];
@@ -50,6 +49,7 @@ function welcomeFn() {
         });
 
         document.getElementById("toptentracksLabel").innerHTML = "Your Top 10 Most Played Songs: -"
+        $('#toptentracks').empty();
         $('#toptentracks').append(html);
 
         $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&limit=10&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
@@ -58,6 +58,7 @@ function welcomeFn() {
             html += "<li>" + "<b>" + item.name + "</b>" + " - " + "Play count : " + item.playcount + "</li>";
           });
           document.getElementById("toptenArtistsLabel").innerHTML = "Your Top 10 Most Played Artists: -"
+          $('#toptenartists').empty();
           $('#toptenartists').append(html);
 
           $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&limit=10&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
@@ -66,6 +67,7 @@ function welcomeFn() {
               html += "<li>" + "<b>" + item.name + "</b>" + " - " + "Play count : " + item.playcount + "</li>";
             });
             document.getElementById("toptenAlbumsLabel").innerHTML = "Your Top 10 Most Played Albums: -"
+            $('#toptenalbums').empty();
             $('#toptenalbums').append(html);
           });
         });
