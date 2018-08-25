@@ -47,7 +47,6 @@ function welcomeFn() {
         $.each(json.toptracks.track, function(i, item) {
           html += "<li>" + "<b>" + item.name + "</b>" + " - " + "Play count : " + item.playcount + "</li>";
         });
-
         document.getElementById("toptentracksLabel").innerHTML = "Your Top 10 Most Played Songs: -"
         $('#toptentracks').empty();
         $('#toptentracks').append(html);
@@ -183,4 +182,103 @@ function scrobblesDaily() {
     var todaysScrobbles = '<b>' + json.recenttracks['@attr'].total + '</b>';
     document.getElementById("todaysscrobbles").innerHTML = "You have listened to " + todaysScrobbles + " songs today.";
   });
+}
+
+google.charts.load('current', {'packages':['gauge']});
+function uniqueTracks() {
+  var userName = document.getElementById("userName").value;
+  var apiURL = 'https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&limit=10&api_key=6e616452b7c762a15256272ddb774c56&user=' + userName + '&format=json';
+  var apiURLGlobal = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettoptracks&api_key=6e616452b7c762a15256272ddb774c56&limit=10&format=json';
+
+  var request = new XMLHttpRequest();
+  var requestGlobal = new XMLHttpRequest();
+  request.open('GET', apiURL);
+  requestGlobal.open('GET', apiURLGlobal);
+  request.responseType = 'json';
+  requestGlobal.responseType = 'json';
+  var toptracksArray = [];
+  var toptracksArrayGlobal = [];
+  request.onload = function () {
+
+    for(var i = 0; i <10; i++) {
+      var response = request.response.toptracks.track[i]['name'];
+      toptracksArray.push(response);
+    }
+    //console.log(toptracksArray);
+
+  }
+  request.send();
+
+  requestGlobal.onload = function () {
+
+    for(var i = 0; i <10; i++) {
+      var response = requestGlobal.response.tracks.track[i]['name'];
+      toptracksArrayGlobal.push(response);
+    }
+    //console.log(toptracksArrayGlobal);
+    var diff = $(toptracksArrayGlobal).not(toptracksArray).get();
+    //console.log(diff.length);
+    document.getElementById("trackuniqueness").innerHTML = "Unique-O-Meter";
+    document.getElementById("diff").innerHTML = "Your listening taste uniqueness quotient is " + '<b>' + diff.length * 10 + '</b>' + ". It means " + (10 - diff.length) + " of your top 10 tracks match the global top 10!";
+    var data = google.visualization.arrayToDataTable([
+      ['Label', 'Value'],
+      ['Uniqueness', diff.length * 10],
+    ]);
+
+    var options = {
+      redFrom: 90, redTo: 100,
+      yellowFrom:75, yellowTo: 90,
+      minorTicks: 5
+    };
+    var chart = new google.visualization.Gauge(document.getElementById('uniquetracksguage'));
+    chart.draw(data, options);
+  }
+  requestGlobal.send();
+}
+
+google.charts.load('current', {'packages':['gauge']});
+function uniqueArtists() {
+  var userName = document.getElementById("userName").value;
+  var apiURL = 'https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&limit=10&api_key=6e616452b7c762a15256272ddb774c56&user=' + userName + '&format=json';
+  var apiURLGlobal = 'https://ws.audioscrobbler.com/2.0/?method=chart.gettopartists&api_key=6e616452b7c762a15256272ddb774c56&limit=10&format=json';
+
+  var request = new XMLHttpRequest();
+  var requestGlobal = new XMLHttpRequest();
+  request.open('GET', apiURL);
+  requestGlobal.open('GET', apiURLGlobal);
+  request.responseType = 'json';
+  requestGlobal.responseType = 'json';
+  var topartistsArray = [];
+  var topartistsArrayGlobal = [];
+  request.onload = function () {
+    for(var i = 0; i <10; i++) {
+      var response = request.response.topartists.artist[i]['name'];
+      topartistsArray.push(response);
+    }
+    console.log(topartistsArray);
+  }
+  request.send();
+  requestGlobal.onload = function () {
+    for(var i = 0; i <10; i++) {
+      var response = requestGlobal.response.artists.artist[i]['name'];
+      topartistsArrayGlobal.push(response);
+    }
+    console.log(topartistsArrayGlobal);
+    var diff = $(topartistsArrayGlobal).not(topartistsArray).get();
+    //console.log(diff.length);
+    document.getElementById("artistuniqueness").innerHTML = "Unique-O-Meter";
+    document.getElementById("artist_diff").innerHTML = "Your Artist/Singer uniqueness quotient is " + '<b>' + diff.length * 10 + '</b>' + ". It means " + (10 - diff.length) + " of your top 10 Artists match the global top 10!";
+    var data = google.visualization.arrayToDataTable([
+      ['Label', 'Value'],
+      ['Uniqueness', diff.length * 10],
+    ]);
+    var options = {
+      redFrom: 90, redTo: 100,
+      yellowFrom:75, yellowTo: 90,
+      minorTicks: 5
+    };
+    var chart = new google.visualization.Gauge(document.getElementById('uniqueartistsguage'));
+    chart.draw(data, options);
+  }
+  requestGlobal.send();
 }
