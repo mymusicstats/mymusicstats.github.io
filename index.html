@@ -15,8 +15,8 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
 <meta name="author" content="Shashank Srivastava.">
-<meta name="keywords" content="Music Stats, Music, Stats, Visualise, music, statistics, music habits, last.fm, unique">
-<title>My Music Stats - Visualise your Last.fm data, analyse your music habits. See how unique your music taste is!</title>
+<meta name="keywords" content="Music Stats, Music, Stats, Visualise, music, statistics, music habits">
+<title>My Music Stats - Visualise your Last.fm data, analyse your music habits.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
@@ -79,7 +79,6 @@ crossorigin="anonymous"></script>
   <li>Superfast & lightweight.</li>
   <li>Looks great on mobile devices.</li>
   <li>Interactive & responsive charts.</li>
-  <li>Unique-O-Meter. See how unique your music taste is!</li>
   <p class="uk-text-right">
   <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
   </p>
@@ -91,7 +90,7 @@ crossorigin="anonymous"></script>
   <div class="uk-navbar-item">
   <form action="javascript:void(0)">
   <input type="text" class="uk-input uk-form-width-medium uk-form-danger" placeholder="Enter Last.fm user name." id="userName" autofocus>
-  <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists()" id="submitBtn">Submit</button>
+  <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart(); fetchNumber(); scrobblesDaily()" id="submitBtn">Submit</button>
   <!--<button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-nav">Open</button>
     <div id="offcanvas-nav" uk-offcanvas="overlay: true">
         <div class="uk-offcanvas-bar">
@@ -114,6 +113,7 @@ crossorigin="anonymous"></script>
 
         </div>
     </div>-->
+
   </form>
   </div>
   </div>
@@ -127,7 +127,7 @@ crossorigin="anonymous"></script>
   <h2 id="welcome" class="animated infinite pulse uk-text-success"></h2>
   <p class="uk-text-lead" id="totalScrobbles"></p>
   <p class="uk-text-lead" id="numunique"></p>
-  <span id="numuniquetracks" class="uk-label uk-label-success"></span><span id="numuniqueartists" class="uk-label"></span><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
+  <span id="numuniquetracks" class=" uk-label uk-label-success"></span><span id="numuniqueartists" class="uk-label"></span><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
   <h4 id="recentTracks"></h4>
   <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
   <h4 id="todaysscrobbles"></h4>
@@ -135,18 +135,12 @@ crossorigin="anonymous"></script>
   <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
   <u><h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3></u>
   <h4 id="toptentracks" class="uk-text-small"></h4>
-  <!--<u><h3 id="trackuniqueness" class="uk-text-bold uk-text-primary"></h3></u>
-  <h4 id="diff"></h4>
-  <div id="uniquetracksguage" style="width: 500px; height: 180px;"></div>-->
   <h4 id="top20tracksLabel" class="uk-text-bold uk-text-success"></h4>
   <div class="chart" id="mostplayedtracks"></div>
   </div>
   <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
   <u><h3 id="toptenArtistsLabel" class="uk-text-bold uk-text-warning"></h3></u>
   <h4 id="toptenartists" class="uk-text-small"></h4>
-  <!--<u><h3 id="artistuniqueness" class="uk-text-bold uk-text-primary"></h3></u>
-  <h4 id="artist_diff"></h4>
-  <div id="uniqueartistsguage" style="width: 500px; height: 180px;"></div>-->
   <h4 id="top20artistsLabel" class="uk-text-bold uk-text-success"></h4>
   <div class="chart" id="mostplayedartists"></div>
   </div>
