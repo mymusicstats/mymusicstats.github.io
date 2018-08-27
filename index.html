@@ -56,118 +56,115 @@ crossorigin="anonymous"></script>
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
   <nav class="uk-navbar-container uk-margin" uk-navbar>
-  <div class="uk-navbar-left">
-  <a class="uk-navbar-item uk-logo animated fadeInDown" href="/">My Music Stats</a>
-  <ul class="uk-navbar-nav">
-  <li>
-  <a href="#modal-example" uk-toggle>
-  <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span><span class="uk-label uk-label-success">Features</span>
-  </a>
-  </li>
-  <li>
-  <a class="fb-like" data-href="https://mymusicstats.github.io/" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></a>
-  </li>
-  </ul>
-  <!-- This is an anchor toggling the modal -->
-  <!-- This is the modal -->
-  <div id="modal-example" uk-modal>
-  <div class="uk-modal-dialog uk-modal-body">
-  <h2 class="uk-modal-title">My Music Stats</h2>
-  <li>Quickly & comprehensively visualise your music data.</li>
-  <li>No data collected or saved.</li>
-  <li>Pure JavaScript & HTML. No backend server involved.</li>
-  <li>Superfast & lightweight.</li>
-  <li>Looks great on mobile devices.</li>
-  <li>Interactive & responsive charts.</li>
-  <li>Unique-O-Meter - See how unique your music taste is.</li>
-  <p class="uk-text-right">
-  <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
-  </p>
-  </div>
-  </div>
-  <!--<div class="uk-navbar-item">
-  <div>Some <a href="#">Link</a></div>
-  </div>-->
-  <div class="uk-navbar-item">
-  <form action="javascript:void(0)">
-  <input type="text" class="uk-input uk-form-width-medium uk-form-danger" placeholder="Enter Last.fm user name." id="userName" autofocus>
-  <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists()" id="submitBtn">Submit</button>
-  <!--<button class="uk-button uk-button-default uk-margin-small-right" type="button" uk-toggle="target: #offcanvas-nav">Open</button>
-    <div id="offcanvas-nav" uk-offcanvas="overlay: true">
-        <div class="uk-offcanvas-bar">
-
-            <ul class="uk-nav uk-nav-default">
-                <li class="uk-active"><a href="#">Active</a></li>
-                <li class="uk-parent">
-                    <a href="#">About</a>
-                    <ul class="uk-nav-sub">
-                        <li><a href="#">Sub item</a></li>
-                        <li><a href="#">Sub item</a></li>
-                    </ul>
-                </li>
-                <li class="uk-nav-header">Header</li>
-                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: table"></span> Item</a></li>
-                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: thumbnails"></span> Item</a></li>
-                <li class="uk-nav-divider"></li>
-                <li><a href="#"><span class="uk-margin-small-right" uk-icon="icon: trash"></span> Item</a></li>
-            </ul>
-
+    <div class="uk-navbar-left">
+      <a class="uk-navbar-item uk-logo animated fadeInDown" href="/">My Music Stats</a>
+      <ul class="uk-navbar-nav">
+        <li>
+          <a href="#modal-example" uk-toggle>
+            <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span><span class="uk-label uk-label-success">Features</span>
+          </a>
+        </li>
+        <li>
+          <a class="fb-like" data-href="https://mymusicstats.github.io/" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></a>
+        </li>
+      </ul>
+      <!-- This is an anchor toggling the modal -->
+      <!-- This is the modal -->
+      <div id="modal-example" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body">
+          <h2 class="uk-modal-title">My Music Stats</h2>
+          <li>Quickly & comprehensively visualise your music data.</li>
+          <li>No data collected or saved.</li>
+          <li>Pure JavaScript & HTML. No backend server involved.</li>
+          <li>Superfast & lightweight.</li>
+          <li>Looks great on mobile devices.</li>
+          <li>Interactive & responsive charts.</li>
+          <li>Unique-O-Meter - See how unique your music taste is.</li>
+          <p class="uk-text-right">
+            <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
+          </p>
         </div>
+      </div>
+      <!--<div class="uk-navbar-item">
+      <div>Some <a href="#">Link</a></div>
     </div>-->
+    <div class="uk-navbar-item">
+      <form action="javascript:void(0)">
+        <input type="text" class="uk-input uk-form-width-medium uk-form-danger" placeholder="Enter Last.fm user name." id="userName" autofocus>
+        <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists()" id="submitBtn">Submit</button>
+        <button class="uk-button uk-button-primary" type="button" uk-toggle="target: #offcanvas-nav">Menu</button>
+        <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+          <div class="uk-offcanvas-bar">
+            <ul class="uk-nav uk-nav-default">
+              <li class="uk-nav-header">Blogs</li>
+              <li><a href="https://mymusicrevu.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: play"></span> Music Sharing & Reviews </a></li>
+              <li class="uk-nav-divider"></li>
+              <li><a href="https://shashankstraveldiary.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: world"></span> Travel Experience & Guide</a></li>
+              <li class="uk-nav-divider"></li>
+              <li><a href="https://watilearnd2day.wordpress.com"><span class="uk-margin-small-right" uk-icon="icon: code"></span> Linux/DevOps/Automation How To</a></li>
+              <li class="uk-nav-divider"></li>
+              <li><a href="https://thepagesbetweenfingers.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: pencil"></span> Books Suggestions & Reviews</a></li>
+              <li class="uk-nav-divider"></li>
+              <li><a href="https://skinny2healthy.blogspot.in/"><span class="uk-margin-small-right" uk-icon="icon: heart"></span> Health & Fitness</a></li>
 
-  </form>
+              <li class="uk-nav-header">Other Applications</li>
+              <li><a href="https://shashankshekharsrivastava.github.io/"><span class="uk-margin-small-right" uk-icon="icon: credit-card"></span> EMI & Income Tax Calculator</a></li>
+            </ul>
+          </div>
+        </div>
+      </form>
+    </div>
   </div>
-  </div>
-  </nav>
-  <hr>
-  <div class="uk-container">
+</nav>
+<hr>
+<div class="uk-container">
   <article class="uk-article">
-  <h1 class="uk-article-title">Welcome to <span class="uk-text-background">My Music Stats!</span></h1>
-  <p>To check your stats, enter your Last.fm username/ID in the textbox above & press Submit. To see my stats, enter my ID <code>shashank-ssriva</code></p>
-  <div><img data-src="" id="image" uk-img></div>
-  <h2 id="welcome" class="animated infinite pulse uk-text-success"></h2>
-  <p class="uk-text-lead" id="totalScrobbles"></p>
-  <p class="uk-text-lead" id="numunique"></p>
-  <span id="numuniquetracks" class=" uk-label uk-label-success"></span><span id="numuniqueartists" class="uk-label"></span><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
-  <h4 id="recentTracks"></h4>
-  <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
-  <h4 id="todaysscrobbles"></h4>
-  <br>
-  <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-  <u><h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3></u>
-  <h4 id="toptentracks" class="uk-text-small"></h4>
-  <u><h3 id="trackuniqueness" class="uk-text-bold uk-text-primary"></h3></u>
-  <h4 id="diff"></h4>
-  <div id="uniquetracksguage"></div>
-  <h4 id="top20tracksLabel" class="uk-text-bold uk-text-success"></h4>
-  <div class="chart" id="mostplayedtracks"></div>
-  </div>
-  <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-  <u><h3 id="toptenArtistsLabel" class="uk-text-bold uk-text-warning"></h3></u>
-  <h4 id="toptenartists" class="uk-text-small"></h4>
-  <u><h3 id="artistuniqueness" class="uk-text-bold uk-text-primary"></h3></u>
-  <h4 id="artist_diff"></h4>
-  <div id="uniqueartistsguage"></div>
-  <h4 id="top20artistsLabel" class="uk-text-bold uk-text-success"></h4>
-  <div class="chart" id="mostplayedartists"></div>
-  </div>
-  <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-  <u><h3 id="toptenAlbumsLabel" class="uk-text-bold uk-text-primary"></h3></u>
-  <h4 id="toptenalbums" class="uk-text-small"></h4>
-  <h4 id="top20albumsLabel" class="uk-text-bold uk-text-success"></h4>
-  <div class="chart" id="mostplayedalbums"></div>
-  </div>
-  <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-  <u><h3 id="toptagsLabel" class="uk-text-bold"></h3></u>
-  <div class="chart" id="toptags"></div>
-  </div>
+    <h1 class="uk-article-title">Welcome to <span class="uk-text-background">My Music Stats!</span></h1>
+    <p>To check your stats, enter your Last.fm username/ID in the textbox above & press Submit. To see my stats, enter my ID <code>shashank-ssriva</code></p>
+    <div><img data-src="" id="image" uk-img></div>
+    <h2 id="welcome" class="animated infinite pulse uk-text-success"></h2>
+    <p class="uk-text-lead" id="totalScrobbles"></p>
+    <p class="uk-text-lead" id="numunique"></p>
+    <span id="numuniquetracks" class=" uk-label uk-label-success"></span><span id="numuniqueartists" class="uk-label"></span><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
+    <h4 id="recentTracks"></h4>
+    <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
+    <h4 id="todaysscrobbles"></h4>
+    <br>
+    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+      <u><h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3></u>
+      <h4 id="toptentracks" class="uk-text-small"></h4>
+      <u><h3 id="trackuniqueness" class="uk-text-bold uk-text-primary"></h3></u>
+      <h4 id="diff"></h4>
+      <div id="uniquetracksguage"></div>
+      <h4 id="top20tracksLabel" class="uk-text-bold uk-text-success"></h4>
+      <div class="chart" id="mostplayedtracks"></div>
+    </div>
+    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+      <u><h3 id="toptenArtistsLabel" class="uk-text-bold uk-text-warning"></h3></u>
+      <h4 id="toptenartists" class="uk-text-small"></h4>
+      <u><h3 id="artistuniqueness" class="uk-text-bold uk-text-primary"></h3></u>
+      <h4 id="artist_diff"></h4>
+      <div id="uniqueartistsguage"></div>
+      <h4 id="top20artistsLabel" class="uk-text-bold uk-text-success"></h4>
+      <div class="chart" id="mostplayedartists"></div>
+    </div>
+    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+      <u><h3 id="toptenAlbumsLabel" class="uk-text-bold uk-text-primary"></h3></u>
+      <h4 id="toptenalbums" class="uk-text-small"></h4>
+      <h4 id="top20albumsLabel" class="uk-text-bold uk-text-success"></h4>
+      <div class="chart" id="mostplayedalbums"></div>
+    </div>
+    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+      <u><h3 id="toptagsLabel" class="uk-text-bold"></h3></u>
+      <div class="chart" id="toptags"></div>
+    </div>
   </article>
   <div class="ssk-sticky ssk-right ssk-center">
-  <a href="" class="ssk ssk-facebook ssk-lg" data-url="https://mymusicstats.github.io/" data-text="Visualise your Last.fm data, analyse your music habits."></a>
-  <a href="" class="ssk ssk-twitter ssk-lg" data-via="shashanksriva"></a>
-  <a href="" class="ssk ssk-google-plus ssk-lg" data-url="https://mymusicstats.github.io/"></a>
-  <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://mymusicstats.github.io/" data-text="Visualise your Last.fm data, analyse your music habits."></a>
-  <a href="whatsapp://send?text=Visualise%20your%20Last.fm%20Data,%20analyse%20your%20music%20habits.%20Visit%20https://mymusicstats.github.io/" class="ssk ssk-whatsapp ssk-lg"></a>
+    <a href="" class="ssk ssk-facebook ssk-lg" data-url="https://mymusicstats.github.io/" data-text="Visualise your Last.fm data, analyse your music habits."></a>
+    <a href="" class="ssk ssk-twitter ssk-lg" data-via="shashanksriva"></a>
+    <a href="" class="ssk ssk-google-plus ssk-lg" data-url="https://mymusicstats.github.io/"></a>
+    <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://mymusicstats.github.io/" data-text="Visualise your Last.fm data, analyse your music habits."></a>
+    <a href="whatsapp://send?text=Visualise%20your%20Last.fm%20Data,%20analyse%20your%20music%20habits.%20Visit%20https://mymusicstats.github.io/" class="ssk ssk-whatsapp ssk-lg"></a>
   </div>
   <script type="text/javascript">
   SocialShareKit.init();
