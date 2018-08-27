@@ -92,26 +92,6 @@ crossorigin="anonymous"></script>
       <form action="javascript:void(0)">
         <input type="text" class="uk-input uk-form-width-medium uk-form-danger" placeholder="Enter Last.fm user name." id="userName" autofocus>
         <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists()" id="submitBtn">Submit</button>
-        <button class="uk-button uk-button-primary" type="button" uk-toggle="target: #offcanvas-nav">Menu</button>
-        <div id="offcanvas-nav" uk-offcanvas="overlay: true">
-          <div class="uk-offcanvas-bar">
-            <ul class="uk-nav uk-nav-default">
-              <li class="uk-nav-header">Blogs</li>
-              <li><a href="https://mymusicrevu.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: play"></span> Music Sharing & Reviews </a></li>
-              <li class="uk-nav-divider"></li>
-              <li><a href="https://shashankstraveldiary.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: world"></span> Travel Experience & Guide</a></li>
-              <li class="uk-nav-divider"></li>
-              <li><a href="https://watilearnd2day.wordpress.com"><span class="uk-margin-small-right" uk-icon="icon: code"></span> Linux/DevOps/Automation How To</a></li>
-              <li class="uk-nav-divider"></li>
-              <li><a href="https://thepagesbetweenfingers.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: pencil"></span> Books Suggestions & Reviews</a></li>
-              <li class="uk-nav-divider"></li>
-              <li><a href="https://skinny2healthy.blogspot.in/"><span class="uk-margin-small-right" uk-icon="icon: heart"></span> Health & Fitness</a></li>
-
-              <li class="uk-nav-header">Other Applications</li>
-              <li><a href="https://shashankshekharsrivastava.github.io/"><span class="uk-margin-small-right" uk-icon="icon: credit-card"></span> EMI & Income Tax Calculator</a></li>
-            </ul>
-          </div>
-        </div>
       </form>
     </div>
   </div>
@@ -121,6 +101,27 @@ crossorigin="anonymous"></script>
   <article class="uk-article">
     <h1 class="uk-article-title">Welcome to <span class="uk-text-background">My Music Stats!</span></h1>
     <p>To check your stats, enter your Last.fm username/ID in the textbox above & press Submit. To see my stats, enter my ID <code>shashank-ssriva</code></p>
+    <hr>
+    <button class="uk-button uk-button-primary" type="button" uk-toggle="target: #offcanvas-nav">Menu</button>
+    <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+      <div class="uk-offcanvas-bar">
+        <ul class="uk-nav uk-nav-default">
+          <li class="uk-nav-header">Blogs</li>
+          <li><a href="https://mymusicrevu.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: play"></span> Music Sharing & Reviews </a></li>
+          <li class="uk-nav-divider"></li>
+          <li><a href="https://shashankstraveldiary.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: world"></span> Travel Experience & Guide</a></li>
+          <li class="uk-nav-divider"></li>
+          <li><a href="https://watilearnd2day.wordpress.com"><span class="uk-margin-small-right" uk-icon="icon: code"></span> Linux/DevOps/Automation How To</a></li>
+          <li class="uk-nav-divider"></li>
+          <li><a href="https://thepagesbetweenfingers.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: pencil"></span> Books Suggestions & Reviews</a></li>
+          <li class="uk-nav-divider"></li>
+          <li><a href="https://skinny2healthy.blogspot.in/"><span class="uk-margin-small-right" uk-icon="icon: heart"></span> Health & Fitness</a></li>
+
+          <li class="uk-nav-header">Other Applications</li>
+          <li><a href="https://shashankshekharsrivastava.github.io/"><span class="uk-margin-small-right" uk-icon="icon: credit-card"></span> EMI & Income Tax Calculator</a></li>
+        </ul>
+      </div>
+    </div>
     <div><img data-src="" id="image" uk-img></div>
     <h2 id="welcome" class="animated infinite pulse uk-text-success"></h2>
     <p class="uk-text-lead" id="totalScrobbles"></p>
