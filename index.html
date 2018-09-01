@@ -46,6 +46,28 @@ crossorigin="anonymous"></script>
 </script>
 </head>
 <body>
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{522132098225404}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{api-version}'
+    });
+
+    FB.AppEvents.logPageView();
+
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -90,7 +112,7 @@ crossorigin="anonymous"></script>
     <div class="uk-navbar-item">
       <form action="javascript:void(0)">
         <input type="text" class="uk-input uk-form-width-medium uk-form-danger" placeholder="Enter Last.fm user name." id="userName" value="shashank-ssriva" autofocus>
-        <button class="uk-button uk-button-secondary" onclick="welcomeFn(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists()" id="submitBtn">Submit</button>
+        <button class="uk-button uk-button-secondary" onclick='welcomeFn(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists(); FB.AppEvents.logEvent("buttonClicked")' id="submitBtn">Submit</button>
       </form>
     </div>
   </div>
@@ -102,7 +124,7 @@ crossorigin="anonymous"></script>
     <a class="fb-like" data-href="https://mymusicstats.github.io/" data-layout="button" data-action="like" data-size="large" data-show-faces="true" data-share="true"></a>
     <p>To check your stats, enter your Last.fm username/ID in the textbox above & press Submit. To see my stats, enter my ID <code>shashank-ssriva</code></p>
     <hr>
-    <button class="uk-button uk-button-primary" type="button" uk-toggle="target: #offcanvas-nav">Menu</button>
+    <button class="uk-button uk-button-primary" type="button" uk-toggle="target: #offcanvas-nav" onclick='FB.AppEvents.logEvent("buttonClicked")'>Menu</button>
     <div id="offcanvas-nav" uk-offcanvas="overlay: true">
       <div class="uk-offcanvas-bar">
         <ul class="uk-nav uk-nav-default">
