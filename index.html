@@ -46,28 +46,6 @@ crossorigin="anonymous"></script>
 </script>
 </head>
 <body>
-
-<script>
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '{522132098225404}',
-      cookie     : true,
-      xfbml      : true,
-      version    : '{api-version}'
-    });
-
-    FB.AppEvents.logPageView();
-
-  };
-
-  (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "https://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-   }(document, 'script', 'facebook-jssdk'));
-</script>
   <div id="fb-root"></div>
   <script>(function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -76,6 +54,24 @@ crossorigin="anonymous"></script>
     js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1';
     fjs.parentNode.insertBefore(js, fjs);
   }(document, 'script', 'facebook-jssdk'));</script>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '{522132098225404}',
+      cookie     : true,
+      xfbml      : true,
+      version    : '{api-version}'
+    });
+    FB.AppEvents.logPageView();
+  };
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
   <nav class="uk-navbar-container uk-margin" uk-navbar>
     <div class="uk-navbar-left">
       <a class="uk-navbar-item uk-logo" href="/">My Music Stats</a>
