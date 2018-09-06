@@ -73,6 +73,8 @@ function welcomeFn() {
       });
       var musicIcon = '<i class="fas fa-play"></i>';
       document.getElementById("recentTracks").innerHTML = musicIcon + " " + "Your last played song is : " + nowplaying + " by : " + lastartistname + " from the Album : " + lastalbumname;
+        // $("#songVideo").attr("src","https://www.youtube-nocookie.com/embed/YE7VzlLtp-4");
+      // document.getElementById('songVideo').src = "https://www.youtube-nocookie.com/embed?" + nowplaying + " " + lastartistname ;
       document.getElementById('lastplayed').src = lastplayedImg;
     });
   });
