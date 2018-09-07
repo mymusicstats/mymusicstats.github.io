@@ -37,7 +37,6 @@ function welcomeFn() {
       var lastplayedImg = json.recenttracks.track[0]['image'][2]['#text'];
       var lastartistname = '<b>'+json.recenttracks.track[0]['artist']['#text']+'</b>';
       var lastalbumname = '<b>'+json.recenttracks.track[0]['album']['#text']+'</b>';
-
       document.getElementById("welcome").innerHTML = "Hi" + " " + lastfmUser;
       document.getElementById("totalScrobbles").innerHTML = "You have heard a total of" + " " + totalScrobbles + " songs since joining Last.fm on " + convdataTime + " It means " + diffDays + " days have elapsed since then! Oh, it also means that you have listened to " + songsPerDay + " songs per day! Keep it up.";
       document.getElementById('image').src = imgSrc;
@@ -257,7 +256,7 @@ function uniqueArtists() {
       var response = request.response.topartists.artist[i]['name'];
       topartistsArray.push(response);
     }
-    console.log(topartistsArray);
+    //console.log(topartistsArray);
   }
   request.send();
   requestGlobal.onload = function () {
@@ -265,7 +264,7 @@ function uniqueArtists() {
       var response = requestGlobal.response.artists.artist[i]['name'];
       topartistsArrayGlobal.push(response);
     }
-    console.log(topartistsArrayGlobal);
+    //console.log(topartistsArrayGlobal);
     var diff = $(topartistsArrayGlobal).not(topartistsArray).get();
     //console.log(diff.length);
     document.getElementById("artistuniqueness").innerHTML = "Unique-O-Meter";
@@ -283,4 +282,26 @@ function uniqueArtists() {
     chart.draw(data, options);
   }
   requestGlobal.send();
+}
+
+function firstSong() {
+  var userName = document.getElementById("userName").value;
+  var findPageURL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&page=200&api_key=6e616452b7c762a15256272ddb774c56";
+  $.getJSON(findPageURL + "&user=" + userName + "&format=json" , function(json) {
+    var totalPages = json.recenttracks['@attr'].totalPages;
+    var recentTracksURL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&api_key=6e616452b7c762a15256272ddb774c56" + "&user=" + userName + "&page=" + totalPages + "&format=json";
+    $.getJSON(recentTracksURL, function(json) {
+      var firstSongVar = json.recenttracks.track[json.recenttracks.track.length-1]['name'];
+      var firstArtist = json.recenttracks.track[json.recenttracks.track.length-1]['artist']['#text'];
+      var firstAlbum = json.recenttracks.track[json.recenttracks.track.length-1]['album']['#text'];
+      var firstSongDate = json.recenttracks.track[json.recenttracks.track.length-1]['date']['#text'];
+      var firstSongImage = json.recenttracks.track[json.recenttracks.track.length-1]['image'][2]['#text'];
+      document.getElementById("firstsongmessage").innerHTML = '<U>' + "Details of your first scrobbled song." + '<U>';
+      document.getElementById("firstsongname").innerHTML = '<b>' + "Title : " + '</b>' + firstSongVar;
+      document.getElementById("firstartistname").innerHTML = '<b>' + "Artist : " + '</b>' + firstArtist;
+      document.getElementById("firstalbumname").innerHTML = '<b>' + "Album : " + '</b>' + firstAlbum;
+      document.getElementById("firstsongdate").innerHTML = '<b>' + "Date : " + '</b>' + firstSongDate;
+      document.getElementById("firstsongimage").src = firstSongImage;
+    });
+});
 }

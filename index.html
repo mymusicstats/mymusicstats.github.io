@@ -95,7 +95,7 @@ crossorigin="anonymous"></script>
     <div class="uk-navbar-item">
       <form action="javascript:void(0)">
         <input type="text" class="uk-input uk-form-width-medium uk-form-danger" placeholder="Enter Last.fm user name." id="userName" value="shashank-ssriva" autofocus>
-        <button class="uk-button uk-button-secondary" href="#totalScrobbles" uk-scroll onclick="welcomeFn(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists(); FB.AppEvents.logEvent('buttonClicked')" id="submitBtn">Submit</button>
+        <button class="uk-button uk-button-secondary" href="#totalScrobbles" uk-scroll onclick="welcomeFn(); firstSong(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists(); FB.AppEvents.logEvent('buttonClicked')" id="submitBtn">Submit</button>
       </form>
     </div>
   </div>
@@ -135,6 +135,10 @@ crossorigin="anonymous"></script>
     <div><img data-src="" id="image" uk-img></div>
 
     <p class="uk-text-lead" id="totalScrobbles"></p>
+    <p class="uk-text-lead" id="firstsongmessage"></p>
+    <div><span id="firstsongname" class=" uk-label uk-label-success"></span><span id="firstartistname" class="uk-label"></span><span id="firstalbumname" class="uk-label uk-label-danger"></span><span id="firstsongdate" class="uk-label uk-label-warning"></span></div>
+    <br>
+    <div uk-tooltip="title: Your first ever scrobbled song!"><img data-src="" id="firstsongimage" uk-img></div>
     <p class="uk-text-lead" id="numunique"></p>
     <span id="numuniquetracks" class=" uk-label uk-label-success"></span><span id="numuniqueartists" class="uk-label"></span><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
     <h4 id="recentTracks"></h4>
