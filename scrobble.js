@@ -286,7 +286,7 @@ function uniqueArtists() {
 
 function firstSong() {
   var userName = document.getElementById("userName").value;
-  var findPageURL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&page=200&api_key=6e616452b7c762a15256272ddb774c56";
+  var findPageURL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&page=200000&api_key=6e616452b7c762a15256272ddb774c56";
   $.getJSON(findPageURL + "&user=" + userName + "&format=json" , function(json) {
     var totalPages = json.recenttracks['@attr'].totalPages;
     var recentTracksURL = "https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&api_key=6e616452b7c762a15256272ddb774c56" + "&user=" + userName + "&page=" + totalPages + "&format=json";
