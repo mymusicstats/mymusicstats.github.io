@@ -34,6 +34,8 @@ function welcomeFn() {
     var songsPerDay = '<b>' + (totalScrobblesNum/diffDaysNum).toFixed() + '</b>';
     $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&nowplaying=true&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
       var nowplaying = '<b>'+json.recenttracks.track[0]['name']+'</b>';
+      var lastplayedSongTime = json.recenttracks.track[0]['date']['#text'];
+      var lastplayedSongURL = json.recenttracks.track[0]['url'];
       var lastplayedImg = json.recenttracks.track[0]['image'][2]['#text'];
       var lastartistname = '<b>'+json.recenttracks.track[0]['artist']['#text']+'</b>';
       var lastalbumname = '<b>'+json.recenttracks.track[0]['album']['#text']+'</b>';
@@ -75,6 +77,11 @@ function welcomeFn() {
         // $("#songVideo").attr("src","https://www.youtube-nocookie.com/embed/YE7VzlLtp-4");
       // document.getElementById('songVideo').src = "https://www.youtube-nocookie.com/embed?" + nowplaying + " " + lastartistname ;
       document.getElementById('lastplayed').src = lastplayedImg;
+      document.getElementById('lastplayedsongdetails').hidden = false;
+      document.getElementById('lastplayedsongtitle').innerHTML = nowplaying;
+      document.getElementById('lastplayedsongtime').innerHTML = "Played on : " + lastplayedSongTime;
+      document.getElementById('lastplayedsongdescription').innerHTML = "Artist : " + lastartistname + " Album : " + lastalbumname;
+      document.getElementById('lastplayedsonglink').innerHTML = "Read more : - " + lastplayedSongURL;
     });
   });
 }

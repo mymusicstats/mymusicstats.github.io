@@ -142,7 +142,26 @@ crossorigin="anonymous"></script>
     <p class="uk-text-lead" id="numunique"></p>
     <span id="numuniquetracks" class=" uk-label uk-label-success"></span><span id="numuniqueartists" class="uk-label"></span><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
     <h4 id="recentTracks"></h4>
-    <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
+    <!-- <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>-->
+    <div id="lastplayedsongdetails" class="uk-card uk-card-default uk-width-1-2@m uk-card-hover" hidden>
+    <div class="uk-card-header">
+        <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+                <img class="uk-border-circle" id="lastplayed" width="75" height="75">
+            </div>
+            <div class="uk-width-expand">
+                <h3 id="lastplayedsongtitle" class="uk-card-title uk-margin-remove-bottom"></h3>
+                <p id="lastplayedsongtime" class="uk-text-meta uk-margin-remove-top"></time></p>
+            </div>
+        </div>
+    </div>
+    <div class="uk-card-body">
+        <p id="lastplayedsongdescription"></p>
+    </div>
+    <div class="uk-card-footer">
+        <a id="lastplayedsonglink" class="uk-button uk-button-text"></a>
+    </div>
+</div>
     <h4 id="todaysscrobbles"></h4>
     <br>
     <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
