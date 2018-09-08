@@ -80,8 +80,8 @@ function welcomeFn() {
       document.getElementById('lastplayedsongdetails').hidden = false;
       document.getElementById('lastplayedsongtitle').innerHTML = nowplaying;
       document.getElementById('lastplayedsongtime').innerHTML = "Played on : " + lastplayedSongTime;
-      document.getElementById('lastplayedsongdescription').innerHTML = "Artist : " + lastartistname + " Album : " + lastalbumname;
-      document.getElementById('lastplayedsonglink').innerHTML = "Read more : - " + lastplayedSongURL;
+      document.getElementById('lastplayedsongdescription').innerHTML = "Artist : " + lastartistname + " Album : " + lastalbumname + ". To read more about the song, click the link below.";
+      document.getElementById('lastplayedsonglink').innerHTML = lastplayedSongURL;
     });
   });
 }
