@@ -45,28 +45,53 @@ function welcomeFn() {
 
       $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettoptracks&limit=10&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
         var html = '';
+        var mostPlayedTrack = json.toptracks.track[0]['name'];
+        var mostPlayedTrackArtist = json.toptracks.track[0]['artist'].name;
+        var mostPlayedTrackImg = json.toptracks.track[0]['image'][2]['#text'];
+        var mostPlayedTrackRanking = json.toptracks.track[0]['@attr'].rank;
         $.each(json.toptracks.track, function(i, item) {
           html += "<li>" + "<b>" + item.name + "</b>" + " - " + "Play count : " + item.playcount + "</li>";
         });
-        document.getElementById("toptentracksLabel").innerHTML = "Your Top 10 Most Played Songs: -"
+        document.getElementById("toptentracksLabel").innerHTML = "Your Top 10 Most Played Songs: -";
+        document.getElementById('toptentrackscard').hidden = false;
+        document.getElementById('mostplayedtrackimage').src = mostPlayedTrackImg;
+        document.getElementById('mostplayedsongtitle').innerHTML = mostPlayedTrack;
+        document.getElementById('mostplayedsongartist').innerHTML = "by " + '<i>' + mostPlayedTrackArtist + '</i>';
+        document.getElementById('mostplayedsongrank').innerHTML = "Ranking : # " + mostPlayedTrackRanking;
         $('#toptentracks').empty();
         $('#toptentracks').append(html);
 
         $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&limit=10&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
           var html = '';
+          var mostPlayedArtist = json.topartists.artist[0]['name'];
+          var mostPlayedArtistImg = json.topartists.artist[0]['image'][2]['#text'];
+          var mostPlayedArtistRanking = json.topartists.artist[0]['@attr'].rank;
           $.each(json.topartists.artist, function(i, item) {
             html += "<li>" + "<b>" + item.name + "</b>" + " - " + "Play count : " + item.playcount + "</li>";
           });
           document.getElementById("toptenArtistsLabel").innerHTML = "Your Top 10 Most Played Artists: -"
+          document.getElementById('toptenartistscard').hidden = false;
+          document.getElementById('mostplayedartistimage').src = mostPlayedArtistImg;
+          document.getElementById('mostplayedartist').innerHTML = mostPlayedArtist;
+          document.getElementById('mostplayedartistrank').innerHTML = "Ranking : # " + mostPlayedArtistRanking;
           $('#toptenartists').empty();
           $('#toptenartists').append(html);
 
           $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&limit=10&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
             var html = '';
+            var mostPlayedAlbum = json.topalbums.album[0]['name'];
+            var mostPlayedAlbumArtist = json.topalbums.album[0]['artist'].name;
+            var mostPlayedAlbumImg = json.topalbums.album[0]['image'][2]['#text'];
+            var mostPlayedAlbumRanking = json.topalbums.album[0]['@attr'].rank;
             $.each(json.topalbums.album, function(i, item) {
               html += "<li>" + "<b>" + item.name + "</b>" + " - " + "Play count : " + item.playcount + "</li>";
             });
             document.getElementById("toptenAlbumsLabel").innerHTML = "Your Top 10 Most Played Albums: -"
+            document.getElementById('toptenalbumscard').hidden = false;
+            document.getElementById('mostplayedalbumimage').src = mostPlayedAlbumImg;
+            document.getElementById('mostplayedalbum').innerHTML = mostPlayedAlbum;
+            document.getElementById('mostplayedalbumartist').innerHTML = "by " + '<i>' + mostPlayedAlbumArtist + '</i>';
+            document.getElementById('mostplayedalbumrank').innerHTML = "Ranking : # " + mostPlayedAlbumRanking;
             $('#toptenalbums').empty();
             $('#toptenalbums').append(html);
           });

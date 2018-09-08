@@ -144,38 +144,77 @@ crossorigin="anonymous"></script>
     <h4 id="recentTracks"></h4>
     <!-- <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>-->
     <div id="lastplayedsongdetails" class="uk-card uk-card-default uk-width-1-2@m uk-card-hover" hidden>
-    <div class="uk-card-header">
+      <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-                <img class="uk-border-circle" id="lastplayed" width="75" height="75">
-            </div>
-            <div class="uk-width-expand">
-                <h3 id="lastplayedsongtitle" class="uk-card-title uk-margin-remove-bottom"></h3>
-                <p id="lastplayedsongtime" class="uk-text-meta uk-margin-remove-top"></time></p>
-            </div>
+          <div class="uk-width-auto">
+            <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
+          </div>
+          <div class="uk-width-expand">
+            <h3 id="lastplayedsongtitle" class="uk-card-title uk-margin-remove-bottom"></h3>
+            <p id="lastplayedsongtime" class="uk-text-meta uk-margin-remove-top"></time></p>
+          </div>
         </div>
-    </div>
-    <div class="uk-card-body">
+      </div>
+      <div class="uk-card-body">
         <p id="lastplayedsongdescription"></p>
-    </div>
-    <div class="uk-card-footer">
+      </div>
+      <div class="uk-card-footer">
         <a id="lastplayedsonglink" class="uk-button uk-button-text">Read more...</a>
+      </div>
     </div>
-</div>
     <h4 id="todaysscrobbles"></h4>
     <br>
+
     <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
       <u><h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3></u>
-      <h4 id="toptentracks" class="uk-text-small"></h4>
+      <div id="toptentrackscard" class="uk-card uk-card-default uk-width-1-2@m uk-card-hover" hidden>
+        <div class="uk-card-header">
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              <div class="uk-card-badge uk-label">Topper</div>
+              <br>
+              <img class="uk-border-circle" id="mostplayedtrackimage" width="75" height="75" uk-img>
+            </div>
+            <div class="uk-width-expand">
+              <h3 id="mostplayedsongtitle" class="uk-card-title uk-margin-remove-bottom"></h3>
+              <h4 id="mostplayedsongartist" class="uk-card-small uk-margin-remove-top"></h4>
+              <p id="mostplayedsongrank" class="uk-text-meta uk-margin-remove-top"></p>
+            </div>
+          </div>
+        </div>
+        <div class="uk-card-body">
+          <h4 id="toptentracks" class="uk-text-small"></h4>
+        </div>
+      </div>
+      <br>
       <u><h3 id="trackuniqueness" class="uk-text-bold uk-text-primary"></h3></u>
       <h4 id="diff"></h4>
       <div id="uniquetracksguage"></div>
       <h4 id="top20tracksLabel" class="uk-text-bold uk-text-success"></h4>
       <div class="chart" id="mostplayedtracks"></div>
     </div>
+
     <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
       <u><h3 id="toptenArtistsLabel" class="uk-text-bold uk-text-warning"></h3></u>
-      <h4 id="toptenartists" class="uk-text-small"></h4>
+      <div id="toptenartistscard" class="uk-card uk-card-default uk-width-1-2@m uk-card-hover" hidden>
+        <div class="uk-card-header">
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              <div class="uk-card-badge uk-label">Topper</div>
+              <br>
+              <img class="uk-border-circle" id="mostplayedartistimage" width="75" height="75" uk-img>
+            </div>
+            <div class="uk-width-expand">
+              <h3 id="mostplayedartist" class="uk-card-title uk-margin-remove-bottom"></h3>
+              <p id="mostplayedartistrank" class="uk-text-meta uk-margin-remove-top"></p>
+            </div>
+          </div>
+        </div>
+        <div class="uk-card-body">
+        <h4 id="toptenartists" class="uk-text-small"></h4>
+      </div>
+      </div>
+      <br>
       <u><h3 id="artistuniqueness" class="uk-text-bold uk-text-primary"></h3></u>
       <h4 id="artist_diff"></h4>
       <div id="uniqueartistsguage"></div>
@@ -184,7 +223,26 @@ crossorigin="anonymous"></script>
     </div>
     <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
       <u><h3 id="toptenAlbumsLabel" class="uk-text-bold uk-text-primary"></h3></u>
-      <h4 id="toptenalbums" class="uk-text-small"></h4>
+      <div id="toptenalbumscard" class="uk-card uk-card-default uk-width-1-2@m uk-card-hover" hidden>
+        <div class="uk-card-header">
+          <div class="uk-grid-small uk-flex-middle" uk-grid>
+            <div class="uk-width-auto">
+              <div class="uk-card-badge uk-label">Topper</div>
+              <br>
+              <img class="uk-border-circle" id="mostplayedalbumimage" width="75" height="75" uk-img>
+            </div>
+            <div class="uk-width-expand">
+              <h3 id="mostplayedalbum" class="uk-card-title uk-margin-remove-bottom"></h3>
+              <h4 id="mostplayedalbumartist" class="uk-card-small uk-margin-remove-top"></h4>
+              <p id="mostplayedalbumrank" class="uk-text-meta uk-margin-remove-top"></p>
+            </div>
+          </div>
+        </div>
+        <div class="uk-card-body">
+        <h4 id="toptenalbums" class="uk-text-small"></h4>
+      </div>
+      </div>
+      <br>
       <h4 id="top20albumsLabel" class="uk-text-bold uk-text-success"></h4>
       <div class="chart" id="mostplayedalbums"></div>
     </div>
