@@ -33,12 +33,12 @@ function welcomeFn() {
     var diffDaysNum = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
     var songsPerDay = '<b>' + (totalScrobblesNum/diffDaysNum).toFixed() + '</b>';
     $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&nowplaying=true&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
-      var nowplaying = '<b>'+json.recenttracks.track[0]['name']+'</b>';
+      var nowplaying = json.recenttracks.track[0]['name'];
       var lastplayedSongTime = json.recenttracks.track[0]['date']['#text'];
       var lastplayedSongURL = json.recenttracks.track[0]['url'];
       var lastplayedImg = json.recenttracks.track[0]['image'][2]['#text'];
-      var lastartistname = '<b>'+json.recenttracks.track[0]['artist']['#text']+'</b>';
-      var lastalbumname = '<b>'+json.recenttracks.track[0]['album']['#text']+'</b>';
+      var lastartistname = json.recenttracks.track[0]['artist']['#text'];
+      var lastalbumname = '<b>'+ json.recenttracks.track[0]['album']['#text']+'</b>';
       document.getElementById("welcome").innerHTML = "Hi" + " " + lastfmUser;
       document.getElementById("totalScrobbles").innerHTML = "You have heard a total of" + " " + totalScrobbles + " songs since joining Last.fm on " + convdataTime + " It means " + diffDays + " days have elapsed since then! Oh, it also means that you have listened to " + songsPerDay + " songs per day! Keep it up.";
       document.getElementById('image').src = imgSrc;
@@ -98,17 +98,25 @@ function welcomeFn() {
         });
       });
       var musicIcon = '<i class="fas fa-play"></i>';
-      document.getElementById("recentTracks").innerHTML = musicIcon + " " + "Your last played song is : " + nowplaying + " by : " + lastartistname + " from the Album : " + lastalbumname;
-        // $("#songVideo").attr("src","https://www.youtube-nocookie.com/embed/YE7VzlLtp-4");
+      document.getElementById("recentTracks").innerHTML = musicIcon + " " + "Your last played song is : " + '<b>' + nowplaying + '</b>' + " by : " + '<b>' + lastartistname + '</b>' + " from the Album : " + lastalbumname;
+      // $("#songVideo").attr("src","https://www.youtube-nocookie.com/embed/YE7VzlLtp-4");
       // document.getElementById('songVideo').src = "https://www.youtube-nocookie.com/embed?" + nowplaying + " " + lastartistname ;
       document.getElementById('lastplayed').src = lastplayedImg;
       document.getElementById('lastplayedsongdetails').hidden = false;
       document.getElementById('lastplayedsongtitle').innerHTML = nowplaying;
       document.getElementById('lastplayedsongtime').innerHTML = "Played on : " + lastplayedSongTime;
-      document.getElementById('lastplayedsongdescription').innerHTML = "Artist : " + lastartistname + " Album : " + lastalbumname + ". To read more about the song, click the link below.";
+      document.getElementById('lastplayedsongdescription').innerHTML = "Artist : " + '<b>' + lastartistname + '</b>' + " Album : " + lastalbumname + ". To read more about the song, click the link below.";
       document.getElementById('lastplayedsonglink').href = lastplayedSongURL;
-    });
+      var trackInfoURL = "https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=6e616452b7c762a15256272ddb774c56" + "&username=" + userName + "&artist=" + lastartistname + "&track=" + nowplaying + "&format=json";
+      var encodedURL = encodeURI(trackInfoURL);
+      $.getJSON(encodedURL, function(json) {
+        //console.log(lastartistname, nowplaying);
+        var trackUserPlayCount = json.track.userplaycount;
+        //console.log(trackUserPlayCount);
+        document.getElementById('trackuserplaycount').innerHTML = "You have played this song " + '<b>' + trackUserPlayCount + '</b>' + " times!";
+      });
   });
+});
 }
 
 google.charts.load('current', {'packages':['corechart']});
@@ -335,5 +343,5 @@ function firstSong() {
       document.getElementById("firstsongdate").innerHTML = '<b>' + "Date : " + '</b>' + firstSongDate;
       document.getElementById("firstsongimage").src = firstSongImage;
     });
-});
+  });
 }
