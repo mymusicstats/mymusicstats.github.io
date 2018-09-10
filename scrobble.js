@@ -98,7 +98,7 @@ function welcomeFn() {
           });
         });
       });
-      var musicIcon = '<i class="fas fa-play"></i>';
+      var musicIcon = '<i class="fas fa-compact-disc fa-spin"></i>';
       document.getElementById("recentTracks").innerHTML = musicIcon + " " + "Your last played song is : " + '<b>' + nowplaying + '</b>' + " by : " + '<b>' + lastartistname + '</b>' + " from the Album : " + lastalbumname;
       // $("#songVideo").attr("src","https://www.youtube-nocookie.com/embed/YE7VzlLtp-4");
       // document.getElementById('songVideo').src = "https://www.youtube-nocookie.com/embed?" + nowplaying + " " + lastartistname ;
