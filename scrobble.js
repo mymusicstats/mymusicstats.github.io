@@ -32,13 +32,14 @@ function welcomeFn() {
     var diffDays = '<b>' + Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay))) + '</b>';
     var diffDaysNum = Math.round(Math.abs((firstDate.getTime() - secondDate.getTime())/(oneDay)));
     var songsPerDay = '<b>' + (totalScrobblesNum/diffDaysNum).toFixed() + '</b>';
-    $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&nowplaying=true&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
-      var nowplaying = json.recenttracks.track[0]['name'];
-      var lastplayedSongTime = json.recenttracks.track[0]['date']['#text'];
-      var lastplayedSongURL = json.recenttracks.track[0]['url'];
-      var lastplayedImg = json.recenttracks.track[0]['image'][2]['#text'];
-      var lastartistname = json.recenttracks.track[0]['artist']['#text'];
-      var lastalbumname = '<b>'+ json.recenttracks.track[0]['album']['#text']+'</b>';
+    $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
+      var nowplaying = json.recenttracks.track[1]['name'];
+      var lastplayedSongTime = json.recenttracks.track[1]['date']['#text'];
+      console.log(lastplayedSongTime);
+      var lastplayedSongURL = json.recenttracks.track[1]['url'];
+      var lastplayedImg = json.recenttracks.track[1]['image'][2]['#text'];
+      var lastartistname = json.recenttracks.track[1]['artist']['#text'];
+      var lastalbumname = '<b>'+ json.recenttracks.track[1]['album']['#text']+'</b>';
       document.getElementById("welcome").innerHTML = "Hi" + " " + lastfmUser;
       document.getElementById("totalScrobbles").innerHTML = "You have heard a total of" + " " + totalScrobbles + " songs since joining Last.fm on " + convdataTime + " It means " + diffDays + " days have elapsed since then! Oh, it also means that you have listened to " + songsPerDay + " songs per day! Keep it up.";
       document.getElementById('image').src = imgSrc;
