@@ -95,7 +95,7 @@ crossorigin="anonymous"></script>
     <div class="uk-navbar-item">
       <form action="javascript:void(0)">
         <input type="text" class="uk-input uk-form-width-medium uk-form-danger" placeholder="Enter Last.fm user name." id="userName" value="shashank-ssriva" autofocus>
-        <button class="uk-button uk-button-secondary" href="#totalScrobbles" uk-scroll onclick="welcomeFn(); firstSong(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists(); FB.AppEvents.logEvent('buttonClicked')" id="submitBtn">Submit</button>
+        <button class="uk-button uk-button-secondary" href="#totalScrobbles" uk-scroll onclick="welcomeFn(); firstSong(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists(); currentPlaying(); FB.AppEvents.logEvent('buttonClicked')" id="submitBtn">Submit</button>
       </form>
     </div>
   </div>
@@ -141,6 +141,7 @@ crossorigin="anonymous"></script>
     <div><img data-src="" id="firstsongimage" uk-img></div>
     <p class="uk-text-lead" id="numunique"></p>
     <span id="numuniquetracks" class=" uk-label uk-label-success"></span><span id="numuniqueartists" class="uk-label"></span><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
+    <h4 id="nowplayingsong"></h4>
     <h4 id="recentTracks"></h4>
     <!-- <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>-->
     <div id="lastplayedsongdetails" class="uk-card uk-card-default uk-width-1-2@m uk-card-hover" hidden>

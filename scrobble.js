@@ -346,3 +346,14 @@ function firstSong() {
     });
   });
 }
+
+function currentPlaying() {
+  var userName = document.getElementById("userName").value;
+  $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&nowplaying=true&page=1&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
+    var currentPlayingSong = json.recenttracks.track[0]['name'];
+    var currentPlayingSongArtist = json.recenttracks.track[0]['artist']['#text'];
+    var currentPlayingSongAlbum = json.recenttracks.track[0]['album']['#text'];
+    var musicIcon = '<i class="fas fa-music fa-spin"></i>';
+    document.getElementById("nowplayingsong").innerHTML = musicIcon + " " + "Now playing : " + '<b>' + currentPlayingSong + '</b>' + " by : " + '<b>' + currentPlayingSongArtist + '</b>' + " from the Album : " + '<b>' + currentPlayingSongAlbum + '</b>';
+  });
+}
