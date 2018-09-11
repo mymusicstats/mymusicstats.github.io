@@ -15,7 +15,7 @@ xmlns:fb="http://ogp.me/ns/fb#" lang="en">
 <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
 <meta name="author" content="Shashank Srivastava.">
-<meta name="keywords" content="Music Stats, Music, Stats, Visualise, music, statistics, music habits, unique, last.fm">
+<meta name="keywords" content="Music Stats, Music, Stats, Visualise, music, statistics, music habits, unique, last.fm, first scrobble">
 <title>My Music Stats - Visualise your Last.fm data, analyse your music habits. See how unique your music taste is.</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -35,6 +35,17 @@ href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
 src="https://code.jquery.com/jquery-3.3.1.min.js"
 integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
 crossorigin="anonymous"></script>
+<!--<script>
+$(document).ready(function () {
+ if(window.location.href.indexOf("userName=shashank-ssriva") > -1) {
+ $("#userName").val("shashank-ssriva");
+   $('#submitBtn').click();
+  }
+});
+</script>
+<script>
+window.dataLayer = window.dataLayer || [];
+</script>-->
 <script type="text/javascript" src="dist/js/scrobble.js"></script>
 <script type="text/javascript" async src="dist/js/social-share-kit.min.js"></script>
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
@@ -148,7 +159,7 @@ crossorigin="anonymous"></script>
       <div class="uk-card-header">
         <div class="uk-grid-small uk-flex-middle" uk-grid>
           <div class="uk-width-auto">
-            <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>
+            <img class="uk-border-circle fa-spin" id="lastplayed" width="75" height="75" uk-img>
           </div>
           <div class="uk-width-expand">
             <h3 id="lastplayedsongtitle" class="uk-card-title uk-margin-remove-bottom"></h3>
