@@ -70,7 +70,7 @@ function welcomeFn() {
           $.each(json.topartists.artist, function(i, item) {
             html += "<li>" + "<b>" + item.name + "</b>" + " - " + "Play count : " + item.playcount + "</li>";
           });
-          document.getElementById("toptenArtistsLabel").innerHTML = "Your Top 10 Most Played Artists: -"
+          document.getElementById("toptenArtistsLabel").innerHTML = "Your Top 10 Most Played Artists: -";
           document.getElementById('toptenartistscard').hidden = false;
           document.getElementById('mostplayedartistimage').src = mostPlayedArtistImg;
           document.getElementById('mostplayedartist').innerHTML = mostPlayedArtist;
@@ -87,7 +87,7 @@ function welcomeFn() {
             $.each(json.topalbums.album, function(i, item) {
               html += "<li>" + "<b>" + item.name + "</b>" + " - " + "Play count : " + item.playcount + "</li>";
             });
-            document.getElementById("toptenAlbumsLabel").innerHTML = "Your Top 10 Most Played Albums: -"
+            document.getElementById("toptenAlbumsLabel").innerHTML = "Your Top 10 Most Played Albums: -";
             document.getElementById('toptenalbumscard').hidden = false;
             document.getElementById('mostplayedalbumimage').src = mostPlayedAlbumImg;
             document.getElementById('mostplayedalbum').innerHTML = mostPlayedAlbum;
@@ -110,6 +110,7 @@ function welcomeFn() {
       document.getElementById('lastplayedsonglink').href = lastplayedSongURL;
       var trackInfoURL = "https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=6e616452b7c762a15256272ddb774c56" + "&username=" + userName + "&artist=" + lastartistname + "&track=" + nowplaying + "&format=json";
       var encodedURL = encodeURI(trackInfoURL);
+      console.log(encodedURL);
       $.getJSON(encodedURL, function(json) {
         //console.log(lastartistname, nowplaying);
         var trackUserPlayCount = json.track.userplaycount;
@@ -138,7 +139,7 @@ function drawChart() {
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedtracks'));
       chart.draw(data, options);
     }
-    document.getElementById("top20tracksLabel").innerHTML = "And here are your Top 20 Most Played Songs: -"
+    document.getElementById("top20tracksLabel").innerHTML = "And here are your Top 20 Most Played Songs: -";
   });
 
   $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettopartists&limit=20&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
@@ -156,7 +157,7 @@ function drawChart() {
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedartists'));
       chart.draw(data, options);
     }
-    document.getElementById("top20artistsLabel").innerHTML = "And here are your Top 20 Most Heard Artists: -"
+    document.getElementById("top20artistsLabel").innerHTML = "And here are your Top 20 Most Heard Artists: -";
   });
 
   $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettopalbums&limit=20&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
@@ -174,7 +175,7 @@ function drawChart() {
       var chart = new google.visualization.ColumnChart(document.getElementById('mostplayedalbums'));
       chart.draw(data, options);
     }
-    document.getElementById("top20albumsLabel").innerHTML = "And here are your Top 20 Most Heard Albums: -"
+    document.getElementById("top20albumsLabel").innerHTML = "And here are your Top 20 Most Heard Albums: -";
   });
 
   $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.gettoptags&limit=5&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
@@ -193,7 +194,7 @@ function drawChart() {
       var chart = new google.visualization.PieChart(document.getElementById('toptags'));
       chart.draw(data, options);
     }
-    document.getElementById("toptagsLabel").innerHTML = "Your Top Tags/Genre: -"
+    document.getElementById("toptagsLabel").innerHTML = "Your Top Tags/Genre: -";
   });
 }
 
@@ -248,7 +249,7 @@ function uniqueTracks() {
     }
     //console.log(toptracksArray);
 
-  }
+  };
   request.send();
 
   requestGlobal.onload = function () {
@@ -274,7 +275,7 @@ function uniqueTracks() {
     };
     var chart = new google.visualization.Gauge(document.getElementById('uniquetracksguage'));
     chart.draw(data, options);
-  }
+  };
   requestGlobal.send();
 }
 
@@ -298,7 +299,7 @@ function uniqueArtists() {
       topartistsArray.push(response);
     }
     //console.log(topartistsArray);
-  }
+  };
   request.send();
   requestGlobal.onload = function () {
     for(var i = 0; i <10; i++) {
@@ -321,7 +322,7 @@ function uniqueArtists() {
     };
     var chart = new google.visualization.Gauge(document.getElementById('uniqueartistsguage'));
     chart.draw(data, options);
-  }
+  };
   requestGlobal.send();
 }
 
