@@ -114,8 +114,12 @@ function welcomeFn() {
       $.getJSON(encodedURL, function(json) {
         //console.log(lastartistname, nowplaying);
         var trackUserPlayCount = json.track.userplaycount;
+        var trackGlobalPlayCount = json.track.playcount;
+        var trackListeners = json.track.listeners;
+        var trackListenership = trackUserPlayCount / trackGlobalPlayCount;
         //console.log(trackUserPlayCount);
-        document.getElementById('trackuserplaycount').innerHTML = "You have played this song " + '<b>' + trackUserPlayCount + '</b>' + " times!";
+        document.getElementById('trackuserplaycount').innerHTML = "You have played this song " + '<b>' + trackUserPlayCount + '</b>' + " times! "
+        + '<b>' + trackListeners + '</b>' + " other listeners have also played this song." + " Your listenership is " + '<b>' + trackListenership.toFixed(2) + '</b>' + " based on the global play-count of " + '<b>' + trackGlobalPlayCount + '</b>' + ".";
       });
   });
 });
