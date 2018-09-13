@@ -108,10 +108,13 @@ function welcomeFn() {
       document.getElementById('lastplayedsongtime').innerHTML = "Played on : " + lastplayedSongTime;
       document.getElementById('lastplayedsongdescription').innerHTML = "Artist : " + '<b>' + lastartistname + '</b>' + " Album : " + lastalbumname + ". To read more about the song, click the link below.";
       document.getElementById('lastplayedsonglink').href = lastplayedSongURL;
-      var trackInfoURL = "https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=6e616452b7c762a15256272ddb774c56" + "&username=" + userName + "&artist=" + lastartistname + "&track=" + nowplaying + "&format=json";
-      var encodedURL = encodeURI(trackInfoURL);
-      console.log(encodedURL);
-      $.getJSON(encodedURL, function(json) {
+      var encodedArtist = encodeURIComponent(lastartistname);
+      console.log(encodedArtist);
+      var encodedTrackTitle = encodeURIComponent(nowplaying);
+      var trackInfoURL = "https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=6e616452b7c762a15256272ddb774c56" + "&username=" + userName + "&artist=" + encodedArtist + "&track=" + encodedTrackTitle + "&format=json";
+      //var encodedURL = encodeURI(trackInfoURL);
+      //console.log(encodedURL);
+      $.getJSON(trackInfoURL, function(json) {
         //console.log(lastartistname, nowplaying);
         var trackUserPlayCount = json.track.userplaycount;
         var trackGlobalPlayCount = json.track.playcount;
@@ -119,7 +122,7 @@ function welcomeFn() {
         var trackListenership = trackUserPlayCount / trackGlobalPlayCount;
         //console.log(trackUserPlayCount);
         document.getElementById('trackuserplaycount').innerHTML = "You have played this song " + '<b>' + trackUserPlayCount + '</b>' + " times! "
-        + '<b>' + trackListeners + '</b>' + " other listeners have also played this song." + " Your listenership is " + '<b>' + trackListenership.toFixed(2) + '</b>' + " based on the global play-count of " + '<b>' + trackGlobalPlayCount + '</b>' + ".";
+        + '<b>' + trackListeners + '</b>' + " other listeners have also played this song." + " Your listenership is " + '<b>' + trackListenership.toFixed(4) + '</b>' + " based on the global play-count of " + '<b>' + trackGlobalPlayCount + '</b>' + ".";
       });
   });
 });
