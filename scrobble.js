@@ -1,3 +1,4 @@
+// Function to display song information.
 function welcomeFn() {
   var userName = document.getElementById("userName").value;
   if (userName == "") {
