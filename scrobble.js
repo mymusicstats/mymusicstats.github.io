@@ -36,7 +36,6 @@ function welcomeFn() {
     $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
       var nowplaying = json.recenttracks.track[1]['name'];
       var lastplayedSongTime = json.recenttracks.track[1]['date']['#text'];
-      console.log(lastplayedSongTime);
       var lastplayedSongURL = json.recenttracks.track[1]['url'];
       var lastplayedImg = json.recenttracks.track[1]['image'][2]['#text'];
       var lastartistname = json.recenttracks.track[1]['artist']['#text'];
@@ -110,18 +109,14 @@ function welcomeFn() {
       document.getElementById('lastplayedsongdescription').innerHTML = "Artist : " + '<b>' + lastartistname + '</b>' + " Album : " + lastalbumname + ". To read more about the song, click the link below.";
       document.getElementById('lastplayedsonglink').href = lastplayedSongURL;
       var encodedArtist = encodeURIComponent(lastartistname);
-      console.log(encodedArtist);
       var encodedTrackTitle = encodeURIComponent(nowplaying);
       var trackInfoURL = "https://ws.audioscrobbler.com/2.0/?method=track.getInfo&api_key=6e616452b7c762a15256272ddb774c56" + "&username=" + userName + "&artist=" + encodedArtist + "&track=" + encodedTrackTitle + "&format=json";
       //var encodedURL = encodeURI(trackInfoURL);
-      //console.log(encodedURL);
       $.getJSON(trackInfoURL, function(json) {
-        //console.log(lastartistname, nowplaying);
         var trackUserPlayCount = json.track.userplaycount;
         var trackGlobalPlayCount = json.track.playcount;
         var trackListeners = json.track.listeners;
         var trackListenership = trackUserPlayCount / trackGlobalPlayCount;
-        //console.log(trackUserPlayCount);
         document.getElementById('trackuserplaycount').innerHTML = "You have played this song " + '<b>' + trackUserPlayCount + '</b>' + " times! "
         + '<b>' + trackListeners + '</b>' + " other listeners have also played this song." + " Your listenership is " + '<b>' + trackListenership.toFixed(4) + '</b>' + " based on the global play-count of " + '<b>' + trackGlobalPlayCount + '</b>' + ".";
       });
@@ -250,25 +245,18 @@ function uniqueTracks() {
   var toptracksArray = [];
   var toptracksArrayGlobal = [];
   request.onload = function () {
-
     for(var i = 0; i <10; i++) {
       var response = request.response.toptracks.track[i]['name'];
       toptracksArray.push(response);
     }
-    //console.log(toptracksArray);
-
   };
   request.send();
-
   requestGlobal.onload = function () {
-
     for(var i = 0; i <10; i++) {
       var response = requestGlobal.response.tracks.track[i]['name'];
       toptracksArrayGlobal.push(response);
     }
-    //console.log(toptracksArrayGlobal);
     var diff = $(toptracksArrayGlobal).not(toptracksArray).get();
-    //console.log(diff.length);
     document.getElementById("trackuniqueness").innerHTML = "Unique-O-Meter";
     document.getElementById("diff").innerHTML = "Your listening taste uniqueness quotient is " + '<b>' + diff.length * 10 + '</b>' + ". It means " + (10 - diff.length) + " of your top 10 tracks match the global top 10!";
     var data = google.visualization.arrayToDataTable([
@@ -306,7 +294,6 @@ function uniqueArtists() {
       var response = request.response.topartists.artist[i]['name'];
       topartistsArray.push(response);
     }
-    //console.log(topartistsArray);
   };
   request.send();
   requestGlobal.onload = function () {
@@ -314,9 +301,7 @@ function uniqueArtists() {
       var response = requestGlobal.response.artists.artist[i]['name'];
       topartistsArrayGlobal.push(response);
     }
-    //console.log(topartistsArrayGlobal);
     var diff = $(topartistsArrayGlobal).not(topartistsArray).get();
-    //console.log(diff.length);
     document.getElementById("artistuniqueness").innerHTML = "Unique-O-Meter";
     document.getElementById("artist_diff").innerHTML = "Your Artist/Singer uniqueness quotient is " + '<b>' + diff.length * 10 + '</b>' + ". It means " + (10 - diff.length) + " of your top 10 Artists match the global top 10!";
     var data = google.visualization.arrayToDataTable([
