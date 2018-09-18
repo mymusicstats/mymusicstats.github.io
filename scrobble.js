@@ -341,6 +341,7 @@ function firstSong() {
   });
 }
 
+// Information about now playing song.
 function currentPlaying() {
   var userName = document.getElementById("userName").value;
   $.getJSON("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&nowplaying=true&page=1&api_key=6e616452b7c762a15256272ddb774c56&user=" + userName + "&format=json", function(json) {
