@@ -5,7 +5,7 @@
   "background_color": "#fa99ca",
   "display": "standalone",
   "scope": "./",
-  "start_url": "index.html",
+  "start_url": "https://mymusicstats.github.io",
   "description": "My Music Stats - Visualise your Last.fm data, analyse your music habits. See how unique your music taste is.",
   "orientation": "any",
   "icons": [
