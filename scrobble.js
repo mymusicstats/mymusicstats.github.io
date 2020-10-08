@@ -1,8 +1,4 @@
 // Function to display song information.
-if ("serviceWorker" in navigator) {
-  // register service worker
-  navigator.serviceWorker.register("service-worker.js");
-}
 function welcomeFn() {
   var userName = document.getElementById("userName").value;
   if (userName == "") {
