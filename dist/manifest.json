@@ -1,0 +1,17 @@
+{
+  "name": "My Music Stats - Visualise your Last.fm data, analyse your music habits.",
+  "short_name": "mymusicstats",
+  "theme_color": "#ffcbe4",
+  "background_color": "#fa99ca",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "https://mymusicstats.github.io/",
+  "description": "My Music Stats - Visualise your Last.fm data, analyse your music habits. See how unique your music taste is.",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "https://mymusicstats.github.io/favicon.ico",
+      "sizes": "1024x1024"
+    }
+  ]
+}

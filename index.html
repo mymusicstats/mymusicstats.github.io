@@ -1,41 +1,74 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
-xmlns:fb="http://ogp.me/ns/fb#" lang="en">
-<head>
-  <!-- Global site tag (gtag.js) - Google Analytics>-->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-123675602-1"></script>
-  <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+<html
+  xmlns="http://www.w3.org/1999/xhtml"
+  xmlns:fb="http://ogp.me/ns/fb#"
+  lang="en"
+>
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics>-->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-123675602-1"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-  gtag('config', 'UA-123675602-1');
-</script>
-<meta charset="utf-8">
-<link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+      gtag("config", "UA-123675602-1");
+    </script>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="manifest" href="/dist/manifest.json" />
 
-<meta name="author" content="Shashank Srivastava.">
-<meta name="keywords" content="Music Stats, Music, Stats, Visualise, music, statistics, music habits, unique, last.fm, first scrobble">
-<title>My Music Stats - Visualise your Last.fm data, analyse your music habits. See how unique your music taste is.</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+    <meta name="author" content="Shashank Srivastava." />
+    <meta
+      name="keywords"
+      content="Music Stats, Music, Stats, Visualise, music, statistics, music habits, unique, last.fm, first scrobble"
+    />
+    <title>
+      My Music Stats - Visualise your Last.fm data, analyse your music habits.
+      See how unique your music taste is.
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.2.0/css/all.css"
+      integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css"
+    />
 
-<!-- UIkit CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css" />
+    <!-- UIkit CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/css/uikit.min.css"
+    />
 
-<link rel="stylesheet" href="dist/css/social-share-kit.css" type="text/css">
+    <link
+      rel="stylesheet"
+      href="dist/css/social-share-kit.css"
+      type="text/css"
+    />
 
-<!-- UIkit JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
-<script
-src="https://code.jquery.com/jquery-3.3.1.min.js"
-integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-crossorigin="anonymous"></script>
-<!--<script>
+    <!-- UIkit JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.10/js/uikit-icons.min.js"></script>
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.min.js"
+      integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"
+    ></script>
+    <!--<script>
 $(document).ready(function () {
  if(window.location.href.indexOf("userName=shashank-ssriva") > -1) {
  $("#userName").val("shashank-ssriva");
@@ -46,253 +79,517 @@ $(document).ready(function () {
 <script>
 window.dataLayer = window.dataLayer || [];
 </script>-->
-<script type="text/javascript" src="dist/js/scrobble.js"></script>
-<script type="text/javascript" async src="dist/js/social-share-kit.min.js"></script>
-<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<script>
-(adsbygoogle = window.adsbygoogle || []).push({
-  google_ad_client: "ca-pub-0479862154014237",
-  enable_page_level_ads: true
-});
-</script>
-</head>
-<body>
-  <div id="fb-root"></div>
-  <script>
-  window.fbAsyncInit = function() {
-    FB.init();
-    FB.AppEvents.logPageView();
-  };
-  (function(d, s, id) {
-    var js, fjs = d.getElementsByTagName(s)[0];
-    if (d.getElementById(id)) return;
-    js = d.createElement(s); js.id = id;
-    js.src = 'https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1&appId=522132098225404&autoLogAppEvents=1';
-    fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-  <nav class="uk-navbar-container uk-margin" uk-navbar>
-    <div class="uk-navbar-left">
-      <a class="uk-navbar-item uk-logo" href="/">My Music Stats</a>
-      <ul class="uk-navbar-nav">
-        <li>
-          <a href="#modal-example" uk-toggle>
-            <span class="uk-icon uk-margin-small-right" uk-icon="icon: star"></span><span class="uk-label uk-label-success">Features</span>
-          </a>
-        </li>
-        <li>
-
-        </li>
-      </ul>
-      <!-- This is an anchor toggling the modal -->
-      <!-- This is the modal -->
-      <div id="modal-example" uk-modal>
-        <div class="uk-modal-dialog uk-modal-body">
-          <h2 class="uk-modal-title">My Music Stats</h2>
-          <li>Quickly & comprehensively visualise your music data.</li>
-          <li>Discover interesting information about your listening habits.</li>
-          <li>No data collected or saved.</li>
-          <li>Pure JavaScript & HTML. No backend server involved.</li>
-          <li>Superfast & lightweight.</li>
-          <li>Fully responsive.</li>
-          <li>Looks great on mobile devices.</li>
-          <li>Beautiful card view with delightful animations.</li>
-          <li>Interactive & responsive charts.</li>
-          <li>Unique-O-Meter - See how unique your music taste is.</li>
-          <p class="uk-text-right">
-            <button class="uk-button uk-button-primary uk-modal-close" type="button">Close</button>
-          </p>
+    <script type="text/javascript" src="dist/js/scrobble.js"></script>
+    <script
+      type="text/javascript"
+      async
+      src="dist/js/social-share-kit.min.js"
+    ></script>
+    <script
+      async
+      src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+    ></script>
+    <script>
+      (adsbygoogle = window.adsbygoogle || []).push({
+        google_ad_client: "ca-pub-0479862154014237",
+        enable_page_level_ads: true,
+      });
+    </script>
+  </head>
+  <body>
+    <div id="fb-root"></div>
+    <script>
+      window.fbAsyncInit = function () {
+        FB.init();
+        FB.AppEvents.logPageView();
+      };
+      (function (d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src =
+          "https://connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v3.1&appId=522132098225404&autoLogAppEvents=1";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
+    </script>
+    <nav class="uk-navbar-container uk-margin" uk-navbar>
+      <div class="uk-navbar-left">
+        <a class="uk-navbar-item uk-logo" href="/">My Music Stats</a>
+        <ul class="uk-navbar-nav">
+          <li>
+            <a href="#modal-example" uk-toggle>
+              <span
+                class="uk-icon uk-margin-small-right"
+                uk-icon="icon: star"
+              ></span
+              ><span class="uk-label uk-label-success">Features</span>
+            </a>
+          </li>
+          <li></li>
+        </ul>
+        <!-- This is an anchor toggling the modal -->
+        <!-- This is the modal -->
+        <div id="modal-example" uk-modal>
+          <div class="uk-modal-dialog uk-modal-body">
+            <h2 class="uk-modal-title">My Music Stats</h2>
+            <li>Quickly & comprehensively visualise your music data.</li>
+            <li>
+              Discover interesting information about your listening habits.
+            </li>
+            <li>No data collected or saved.</li>
+            <li>Pure JavaScript & HTML. No backend server involved.</li>
+            <li>Superfast & lightweight.</li>
+            <li>Fully responsive.</li>
+            <li>Looks great on mobile devices.</li>
+            <li>Beautiful card view with delightful animations.</li>
+            <li>Interactive & responsive charts.</li>
+            <li>Unique-O-Meter - See how unique your music taste is.</li>
+            <p class="uk-text-right">
+              <button
+                class="uk-button uk-button-primary uk-modal-close"
+                type="button"
+              >
+                Close
+              </button>
+            </p>
+          </div>
         </div>
-      </div>
-      <!--<div class="uk-navbar-item">
+        <!--<div class="uk-navbar-item">
       <div>Some <a href="#">Link</a></div>
     </div>-->
-    <div class="uk-navbar-item">
-      <form action="javascript:void(0)">
-        <input type="text" class="uk-input uk-form-width-medium uk-form-danger" placeholder="Enter Last.fm user name." id="userName" value="shashank-ssriva" autofocus>
-        <button class="uk-button uk-button-secondary" href="#totalScrobbles" uk-scroll onclick="welcomeFn(); firstSong(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists(); currentPlaying(); FB.AppEvents.logEvent('buttonClicked')" id="submitBtn">Submit</button>
-      </form>
-    </div>
-  </div>
-</nav>
-<hr>
-<div class="uk-container">
-  <article class="uk-article">
-    <h1 class="uk-article-title">Welcome to <span class="uk-text-background">My Music Stats!</span></h1>
-    <div class="fb-like" data-href="https://mymusicstats.github.io/" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
-    <p>To check your stats, enter your Last.fm username/ID in the textbox above & press Submit. To see my stats, enter my ID <code>shashank-ssriva</code>.</p>
-    <p>You can also select any text on the page to enable a <code>Share Quote</code> button. You can then share the quoted data on Facebook. Give it a try!</p>
-    <div class="fb-save" data-uri="https://mymusicstats.github.io/" data-size="large"></div>
-    <hr>
-    <button class="uk-button uk-button-primary" type="button" uk-toggle="target: #offcanvas-nav" onclick="FB.AppEvents.logEvent('buttonClicked')">Menu</button>
-    <a class="uk-button uk-button-secondary" type="button" onclick="FB.AppEvents.logEvent('buttonClicked')" href="tutorial_android.html">Tutorials</a>
-    <div id="offcanvas-nav" uk-offcanvas="overlay: true">
-      <div class="uk-offcanvas-bar">
-        <ul class="uk-nav uk-nav-default">
-          <li class="uk-nav-header">Blogs</li>
-          <li><a href="https://mymusicrevu.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: play"></span> Music Sharing & Reviews </a></li>
-          <li class="uk-nav-divider"></li>
-          <li><a href="https://shashankstraveldiary.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: world"></span> Travel Experience & Guide</a></li>
-          <li class="uk-nav-divider"></li>
-          <li><a href="https://watilearnd2day.wordpress.com"><span class="uk-margin-small-right" uk-icon="icon: code"></span> Linux/DevOps/Automation How To</a></li>
-          <li class="uk-nav-divider"></li>
-          <li><a href="https://thepagesbetweenfingers.blogspot.com/"><span class="uk-margin-small-right" uk-icon="icon: pencil"></span> Books Suggestions & Reviews</a></li>
-          <li class="uk-nav-divider"></li>
-          <li><a href="https://skinny2healthy.blogspot.in/"><span class="uk-margin-small-right" uk-icon="icon: heart"></span> Health & Fitness</a></li>
+        <div class="uk-navbar-item">
+          <form action="javascript:void(0)">
+            <input
+              type="text"
+              class="uk-input uk-form-width-medium uk-form-danger"
+              placeholder="Enter Last.fm user name."
+              id="userName"
+              value="shashank-ssriva"
+              autofocus
+            />
+            <button
+              class="uk-button uk-button-secondary"
+              href="#totalScrobbles"
+              uk-scroll
+              onclick="welcomeFn(); firstSong(); drawChart(); fetchNumber(); scrobblesDaily(); uniqueTracks(); uniqueArtists(); currentPlaying(); FB.AppEvents.logEvent('buttonClicked')"
+              id="submitBtn"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+      </div>
+    </nav>
+    <hr />
+    <div class="uk-container">
+      <article class="uk-article">
+        <h1 class="uk-article-title">
+          Welcome to <span class="uk-text-background">My Music Stats!</span>
+        </h1>
+        <div
+          class="fb-like"
+          data-href="https://mymusicstats.github.io/"
+          data-layout="standard"
+          data-action="like"
+          data-size="small"
+          data-show-faces="true"
+          data-share="true"
+        ></div>
+        <p>
+          To check your stats, enter your Last.fm username/ID in the textbox
+          above & press Submit. To see my stats, enter my ID
+          <code>shashank-ssriva</code>.
+        </p>
+        <p>
+          You can also select any text on the page to enable a
+          <code>Share Quote</code> button. You can then share the quoted data on
+          Facebook. Give it a try!
+        </p>
+        <div
+          class="fb-save"
+          data-uri="https://mymusicstats.github.io/"
+          data-size="large"
+        ></div>
+        <hr />
+        <button
+          class="uk-button uk-button-primary"
+          type="button"
+          uk-toggle="target: #offcanvas-nav"
+          onclick="FB.AppEvents.logEvent('buttonClicked')"
+        >
+          Menu
+        </button>
+        <a
+          class="uk-button uk-button-secondary"
+          type="button"
+          onclick="FB.AppEvents.logEvent('buttonClicked')"
+          href="tutorial_android.html"
+          >Tutorials</a
+        >
+        <div id="offcanvas-nav" uk-offcanvas="overlay: true">
+          <div class="uk-offcanvas-bar">
+            <ul class="uk-nav uk-nav-default">
+              <li class="uk-nav-header">Blogs</li>
+              <li>
+                <a href="https://mymusicrevu.blogspot.com/"
+                  ><span
+                    class="uk-margin-small-right"
+                    uk-icon="icon: play"
+                  ></span>
+                  Music Sharing & Reviews
+                </a>
+              </li>
+              <li class="uk-nav-divider"></li>
+              <li>
+                <a href="https://shashankstraveldiary.blogspot.com/"
+                  ><span
+                    class="uk-margin-small-right"
+                    uk-icon="icon: world"
+                  ></span>
+                  Travel Experience & Guide</a
+                >
+              </li>
+              <li class="uk-nav-divider"></li>
+              <li>
+                <a href="https://watilearnd2day.wordpress.com"
+                  ><span
+                    class="uk-margin-small-right"
+                    uk-icon="icon: code"
+                  ></span>
+                  Linux/DevOps/Automation How To</a
+                >
+              </li>
+              <li class="uk-nav-divider"></li>
+              <li>
+                <a href="https://thepagesbetweenfingers.blogspot.com/"
+                  ><span
+                    class="uk-margin-small-right"
+                    uk-icon="icon: pencil"
+                  ></span>
+                  Books Suggestions & Reviews</a
+                >
+              </li>
+              <li class="uk-nav-divider"></li>
+              <li>
+                <a href="https://skinny2healthy.blogspot.in/"
+                  ><span
+                    class="uk-margin-small-right"
+                    uk-icon="icon: heart"
+                  ></span>
+                  Health & Fitness</a
+                >
+              </li>
 
-          <li class="uk-nav-header">Other Applications</li>
-          <li><a href="https://shashankshekharsrivastava.github.io/"><span class="uk-margin-small-right" uk-icon="icon: credit-card"></span> EMI & Income Tax Calculator</a></li>
-        </ul>
-      </div>
-    </div>
-    <br>
-    <h2 id="welcome" class="animated infinite pulse uk-text-success"></h2>
-    <div><img data-src="" id="image" uk-img></div>
+              <li class="uk-nav-header">Other Applications</li>
+              <li>
+                <a href="https://shashankshekharsrivastava.github.io/"
+                  ><span
+                    class="uk-margin-small-right"
+                    uk-icon="icon: credit-card"
+                  ></span>
+                  EMI & Income Tax Calculator</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <br />
+        <h2 id="welcome" class="animated infinite pulse uk-text-success"></h2>
+        <div><img data-src="" id="image" uk-img /></div>
 
-    <p class="uk-text-lead" id="totalScrobbles"></p>
-    <p class="uk-text-lead" id="firstsongmessage"></p>
-    <div><span id="firstsongname" class=" uk-label uk-label-success"></span><span id="firstartistname" class="uk-label"></span><span id="firstalbumname" class="uk-label uk-label-danger"></span><span id="firstsongdate" class="uk-label uk-label-warning"></span></div>
-    <br>
-    <div><img data-src="" id="firstsongimage" uk-img></div>
-    <p class="uk-text-lead" id="numunique"></p>
-    <span id="numuniquetracks" class=" uk-label uk-label-success"></span><span id="numuniqueartists" class="uk-label"></span><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
-    <h4 id="nowplayingsong"></h4>
-    <h4 id="recentTracks"></h4>
-    <!-- <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>-->
-    <div id="lastplayedsongdetails" class="uk-card uk-card-default uk-width-1-2@m uk-card-hover" hidden>
-      <div class="uk-card-header">
-        <div class="uk-grid-small uk-flex-middle" uk-grid>
-          <div class="uk-width-auto">
-            <img class="uk-border-circle fa-spin" id="lastplayed" width="75" height="75" uk-img>
+        <p class="uk-text-lead" id="totalScrobbles"></p>
+        <p class="uk-text-lead" id="firstsongmessage"></p>
+        <div>
+          <span id="firstsongname" class="uk-label uk-label-success"></span
+          ><span id="firstartistname" class="uk-label"></span
+          ><span id="firstalbumname" class="uk-label uk-label-danger"></span
+          ><span id="firstsongdate" class="uk-label uk-label-warning"></span>
+        </div>
+        <br />
+        <div><img data-src="" id="firstsongimage" uk-img /></div>
+        <p class="uk-text-lead" id="numunique"></p>
+        <span id="numuniquetracks" class="uk-label uk-label-success"></span
+        ><span id="numuniqueartists" class="uk-label"></span
+        ><span id="numuniquealbums" class="uk-label uk-label-danger"></span>
+        <h4 id="nowplayingsong"></h4>
+        <h4 id="recentTracks"></h4>
+        <!-- <img class="uk-border-circle" id="lastplayed" width="75" height="75" uk-img>-->
+        <div
+          id="lastplayedsongdetails"
+          class="uk-card uk-card-default uk-width-1-2@m uk-card-hover"
+          hidden
+        >
+          <div class="uk-card-header">
+            <div class="uk-grid-small uk-flex-middle" uk-grid>
+              <div class="uk-width-auto">
+                <img
+                  class="uk-border-circle fa-spin"
+                  id="lastplayed"
+                  width="75"
+                  height="75"
+                  uk-img
+                />
+              </div>
+              <div class="uk-width-expand">
+                <h3
+                  id="lastplayedsongtitle"
+                  class="uk-card-title uk-margin-remove-bottom"
+                ></h3>
+                <p
+                  id="lastplayedsongtime"
+                  class="uk-text-meta uk-margin-remove-top"
+                ></p>
+              </div>
+            </div>
           </div>
-          <div class="uk-width-expand">
-            <h3 id="lastplayedsongtitle" class="uk-card-title uk-margin-remove-bottom"></h3>
-            <p id="lastplayedsongtime" class="uk-text-meta uk-margin-remove-top"></p>
+          <div class="uk-card-body">
+            <p id="trackuserplaycount"></p>
+            <p id="lastplayedsongdescription"></p>
+          </div>
+          <div class="uk-card-footer">
+            <a id="lastplayedsonglink" class="uk-button uk-button-text"
+              >Read more...</a
+            >
           </div>
         </div>
-      </div>
-      <div class="uk-card-body">
-        <p id="trackuserplaycount"></p>
-        <p id="lastplayedsongdescription"></p>
-      </div>
-      <div class="uk-card-footer">
-        <a id="lastplayedsonglink" class="uk-button uk-button-text">Read more...</a>
-      </div>
-    </div>
-    <h4 id="todaysscrobbles"></h4>
-    <br>
+        <h4 id="todaysscrobbles"></h4>
+        <br />
 
-    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-      <u><h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3></u>
-      <div id="toptentrackscard" class="uk-card uk-card-default uk-width-1-2@m uk-card-hover" hidden>
-        <div class="uk-card-header">
-          <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-              <div class="uk-card-badge uk-label">Topper</div>
-              <br>
-              <img class="uk-border-circle" id="mostplayedtrackimage" width="75" height="75" uk-img>
+        <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+          <u
+            ><h3 id="toptentracksLabel" class="uk-text-bold uk-text-danger"></h3
+          ></u>
+          <div
+            id="toptentrackscard"
+            class="uk-card uk-card-default uk-width-1-2@m uk-card-hover"
+            hidden
+          >
+            <div class="uk-card-header">
+              <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-auto">
+                  <div class="uk-card-badge uk-label">Topper</div>
+                  <br />
+                  <img
+                    class="uk-border-circle"
+                    id="mostplayedtrackimage"
+                    width="75"
+                    height="75"
+                    uk-img
+                  />
+                </div>
+                <div class="uk-width-expand">
+                  <h3
+                    id="mostplayedsongtitle"
+                    class="uk-card-title uk-margin-remove-bottom"
+                  ></h3>
+                  <h4
+                    id="mostplayedsongartist"
+                    class="uk-card-small uk-margin-remove-top"
+                  ></h4>
+                  <p
+                    id="mostplayedsongrank"
+                    class="uk-text-meta uk-margin-remove-top"
+                  ></p>
+                </div>
+              </div>
             </div>
-            <div class="uk-width-expand">
-              <h3 id="mostplayedsongtitle" class="uk-card-title uk-margin-remove-bottom"></h3>
-              <h4 id="mostplayedsongartist" class="uk-card-small uk-margin-remove-top"></h4>
-              <p id="mostplayedsongrank" class="uk-text-meta uk-margin-remove-top"></p>
+            <div class="uk-card-body">
+              <h4 id="toptentracks" class="uk-text-small"></h4>
             </div>
           </div>
+          <br />
+          <u
+            ><h3 id="trackuniqueness" class="uk-text-bold uk-text-primary"></h3
+          ></u>
+          <h4 id="diff"></h4>
+          <div id="uniquetracksguage"></div>
+          <h4 id="top20tracksLabel" class="uk-text-bold uk-text-success"></h4>
+          <div class="chart" id="mostplayedtracks"></div>
         </div>
-        <div class="uk-card-body">
-          <h4 id="toptentracks" class="uk-text-small"></h4>
-        </div>
-      </div>
-      <br>
-      <u><h3 id="trackuniqueness" class="uk-text-bold uk-text-primary"></h3></u>
-      <h4 id="diff"></h4>
-      <div id="uniquetracksguage"></div>
-      <h4 id="top20tracksLabel" class="uk-text-bold uk-text-success"></h4>
-      <div class="chart" id="mostplayedtracks"></div>
-    </div>
 
-    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-      <u><h3 id="toptenArtistsLabel" class="uk-text-bold uk-text-warning"></h3></u>
-      <div id="toptenartistscard" class="uk-card uk-card-default uk-width-1-2@m uk-card-hover" hidden>
-        <div class="uk-card-header">
-          <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-              <div class="uk-card-badge uk-label">Topper</div>
-              <br>
-              <img class="uk-border-circle" id="mostplayedartistimage" width="75" height="75" uk-img>
+        <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+          <u
+            ><h3
+              id="toptenArtistsLabel"
+              class="uk-text-bold uk-text-warning"
+            ></h3
+          ></u>
+          <div
+            id="toptenartistscard"
+            class="uk-card uk-card-default uk-width-1-2@m uk-card-hover"
+            hidden
+          >
+            <div class="uk-card-header">
+              <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-auto">
+                  <div class="uk-card-badge uk-label">Topper</div>
+                  <br />
+                  <img
+                    class="uk-border-circle"
+                    id="mostplayedartistimage"
+                    width="75"
+                    height="75"
+                    uk-img
+                  />
+                </div>
+                <div class="uk-width-expand">
+                  <h3
+                    id="mostplayedartist"
+                    class="uk-card-title uk-margin-remove-bottom"
+                  ></h3>
+                  <p
+                    id="mostplayedartistrank"
+                    class="uk-text-meta uk-margin-remove-top"
+                  ></p>
+                </div>
+              </div>
             </div>
-            <div class="uk-width-expand">
-              <h3 id="mostplayedartist" class="uk-card-title uk-margin-remove-bottom"></h3>
-              <p id="mostplayedartistrank" class="uk-text-meta uk-margin-remove-top"></p>
-            </div>
-          </div>
-        </div>
-        <div class="uk-card-body">
-        <h4 id="toptenartists" class="uk-text-small"></h4>
-      </div>
-      </div>
-      <br>
-      <u><h3 id="artistuniqueness" class="uk-text-bold uk-text-primary"></h3></u>
-      <h4 id="artist_diff"></h4>
-      <div id="uniqueartistsguage"></div>
-      <h4 id="top20artistsLabel" class="uk-text-bold uk-text-success"></h4>
-      <div class="chart" id="mostplayedartists"></div>
-    </div>
-    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-      <u><h3 id="toptenAlbumsLabel" class="uk-text-bold uk-text-primary"></h3></u>
-      <div id="toptenalbumscard" class="uk-card uk-card-default uk-width-1-2@m uk-card-hover" hidden>
-        <div class="uk-card-header">
-          <div class="uk-grid-small uk-flex-middle" uk-grid>
-            <div class="uk-width-auto">
-              <div class="uk-card-badge uk-label">Topper</div>
-              <br>
-              <img class="uk-border-circle" id="mostplayedalbumimage" width="75" height="75" uk-img>
-            </div>
-            <div class="uk-width-expand">
-              <h3 id="mostplayedalbum" class="uk-card-title uk-margin-remove-bottom"></h3>
-              <h4 id="mostplayedalbumartist" class="uk-card-small uk-margin-remove-top"></h4>
-              <p id="mostplayedalbumrank" class="uk-text-meta uk-margin-remove-top"></p>
+            <div class="uk-card-body">
+              <h4 id="toptenartists" class="uk-text-small"></h4>
             </div>
           </div>
+          <br />
+          <u
+            ><h3 id="artistuniqueness" class="uk-text-bold uk-text-primary"></h3
+          ></u>
+          <h4 id="artist_diff"></h4>
+          <div id="uniqueartistsguage"></div>
+          <h4 id="top20artistsLabel" class="uk-text-bold uk-text-success"></h4>
+          <div class="chart" id="mostplayedartists"></div>
         </div>
-        <div class="uk-card-body">
-        <h4 id="toptenalbums" class="uk-text-small"></h4>
+        <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+          <u
+            ><h3
+              id="toptenAlbumsLabel"
+              class="uk-text-bold uk-text-primary"
+            ></h3
+          ></u>
+          <div
+            id="toptenalbumscard"
+            class="uk-card uk-card-default uk-width-1-2@m uk-card-hover"
+            hidden
+          >
+            <div class="uk-card-header">
+              <div class="uk-grid-small uk-flex-middle" uk-grid>
+                <div class="uk-width-auto">
+                  <div class="uk-card-badge uk-label">Topper</div>
+                  <br />
+                  <img
+                    class="uk-border-circle"
+                    id="mostplayedalbumimage"
+                    width="75"
+                    height="75"
+                    uk-img
+                  />
+                </div>
+                <div class="uk-width-expand">
+                  <h3
+                    id="mostplayedalbum"
+                    class="uk-card-title uk-margin-remove-bottom"
+                  ></h3>
+                  <h4
+                    id="mostplayedalbumartist"
+                    class="uk-card-small uk-margin-remove-top"
+                  ></h4>
+                  <p
+                    id="mostplayedalbumrank"
+                    class="uk-text-meta uk-margin-remove-top"
+                  ></p>
+                </div>
+              </div>
+            </div>
+            <div class="uk-card-body">
+              <h4 id="toptenalbums" class="uk-text-small"></h4>
+            </div>
+          </div>
+          <br />
+          <h4 id="top20albumsLabel" class="uk-text-bold uk-text-success"></h4>
+          <div class="chart" id="mostplayedalbums"></div>
+        </div>
+        <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
+          <u><h3 id="toptagsLabel" class="uk-text-bold"></h3></u>
+          <div class="chart" id="toptags"></div>
+        </div>
+      </article>
+      <div class="ssk-sticky ssk-right ssk-center">
+        <a
+          href="https://www.facebook.com/sharer/sharer.php?u=https://mymusicstats.github.io&t={My Music Stats - Visualise your Last.fm data, analyse your music habits. See how unique your music taste is.}"
+          target="_blank"
+          class="ssk ssk-facebook ssk-lg"
+        ></a>
+        <a
+          href="https://twitter.com/intent/tweet?url=https://mymusicstats.github.io&text=My Music Stats - Visualise your Last.fm data, analyse your music habits. See how unique your music taste is. %20via%20@shashanksriva"
+          target="_blank"
+          class="ssk ssk-twitter ssk-lg"
+        ></a>
+        <!-- <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://mymusicstats.github.io/" data-text="Visualise your Last.fm data, analyse your music habits."></a> -->
+        <a
+          href="whatsapp://send?text=Visualise%20your%20Last.fm%20Data,%20analyse%20your%20music%20habits.%20Visit%20https://mymusicstats.github.io/"
+          class="ssk ssk-whatsapp ssk-lg"
+        ></a>
       </div>
-      </div>
-      <br>
-      <h4 id="top20albumsLabel" class="uk-text-bold uk-text-success"></h4>
-      <div class="chart" id="mostplayedalbums"></div>
+      <script type="text/javascript">
+        SocialShareKit.init();
+      </script>
+      <div
+        class="fb-comments"
+        data-href="https://mymusicstats.github.io/"
+        data-numposts="10"
+        data-colorscheme="dark"
+      ></div>
+      <hr />
+      <a href="#" uk-totop uk-scroll></a>
+      <center>
+        <div class="footer">
+          <h2>
+            <span class="uk-label uk-label-primary"><></span> with
+            <span class="uk-label uk-label-danger"
+              ><i class="fas fa-heart"></i
+            ></span>
+            &
+            <span class="uk-label uk-label-success"
+              ><i class="fab fa-js-square"></i
+            ></span>
+            by
+            <span class="uk-label uk-label-warning">Shashank Srivastava</span>
+          </h2>
+          <p class="uk-text-secondary">
+            All rights reserved with <a href="https://www.last.fm">Last.fm</a>
+          </p>
+          <p class="text-info">
+            Connect with me on social media. I would love to see you there!
+          </p>
+          <div>
+            <a
+              href="https://twitter.com/shashanksriva"
+              class="ssk ssk-text ssk-twitter"
+              data-ssk-ready="true"
+              >Twitter</a
+            >
+            <a
+              href="https://www.facebook.com/shazmix"
+              class="ssk ssk-text ssk-facebook"
+              data-ssk-ready="true"
+              >Facebook</a
+            >
+            <a
+              href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw"
+              class="ssk ssk-text ssk-youtube"
+              data-ssk-ready="true"
+              >YouTube</a
+            >
+            <a
+              href="https://www.instagram.com/shashanksriva/"
+              class="ssk ssk-text ssk-instagram"
+              data-ssk-ready="true"
+              >Instagram</a
+            >
+          </div>
+        </div>
+      </center>
     </div>
-    <div uk-scrollspy="cls: uk-animation-fade; repeat: true">
-      <u><h3 id="toptagsLabel" class="uk-text-bold"></h3></u>
-      <div class="chart" id="toptags"></div>
-    </div>
-  </article>
-  <div class="ssk-sticky ssk-right ssk-center">
-    <a href="https://www.facebook.com/sharer/sharer.php?u=https://mymusicstats.github.io&t={My Music Stats - Visualise your Last.fm data, analyse your music habits. See how unique your music taste is.}" target="_blank" class="ssk ssk-facebook ssk-lg"></a>
-    <a href="https://twitter.com/intent/tweet?url=https://mymusicstats.github.io&text=My Music Stats - Visualise your Last.fm data, analyse your music habits. See how unique your music taste is. %20via%20@shashanksriva" target="_blank" class="ssk ssk-twitter ssk-lg"></a>
-    <!-- <a href="" class="ssk ssk-linkedin ssk-lg" data-url="https://mymusicstats.github.io/" data-text="Visualise your Last.fm data, analyse your music habits."></a> -->
-    <a href="whatsapp://send?text=Visualise%20your%20Last.fm%20Data,%20analyse%20your%20music%20habits.%20Visit%20https://mymusicstats.github.io/" class="ssk ssk-whatsapp ssk-lg"></a>
-  </div>
-  <script type="text/javascript">
-  SocialShareKit.init();
-</script>
-<div class="fb-comments" data-href="https://mymusicstats.github.io/" data-numposts="10" data-colorscheme="dark"></div>
-<hr>
-<a href="#" uk-totop uk-scroll></a>
-<center>
-  <div class="footer">
-    <h2><span class="uk-label uk-label-primary"><></span> with <span class="uk-label uk-label-danger"><i class="fas fa-heart"></i></span> & <span class="uk-label uk-label-success"><i class="fab fa-js-square"></i></span> by <span class="uk-label uk-label-warning">Shashank Srivastava</span></h2>
-    <p class="uk-text-secondary">All rights reserved with <a href="https://www.last.fm">Last.fm</a></p>
-    <p class="text-info">Connect with me on social media. I would love to see you there!</p>
-    <div>
-      <a href="https://twitter.com/shashanksriva" class="ssk ssk-text ssk-twitter" data-ssk-ready="true">Twitter</a>
-      <a href="https://www.facebook.com/shazmix" class="ssk ssk-text ssk-facebook" data-ssk-ready="true">Facebook</a>
-      <a href="https://www.youtube.com/channel/UC_ZC2oiiJUjdffCqIZ5lLKw" class="ssk ssk-text ssk-youtube" data-ssk-ready="true">YouTube</a>
-      <a href="https://www.instagram.com/shashanksriva/" class="ssk ssk-text ssk-instagram" data-ssk-ready="true">Instagram</a>
-    </div>
-  </div>
-</center>
-</div>
-<div class="fb-quote"></div>
-</body>
+    <div class="fb-quote"></div>
+  </body>
 </html>
